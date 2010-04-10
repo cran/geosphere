@@ -17,8 +17,8 @@ distVincentyEllipsoid(p1, p2, a=6378137, b=6356752.3142, f=1/298.257223563)
 }
 
 \arguments{
-  \item{p1}{longitude/latitude of point(s), in degrees 1; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a spatialPoints* object}
-  \item{p2}{as above. Should have same length as p1, or a single point (or vice versa when p1 is a single point}
+  \item{p1}{longitude/latitude of point(s), in degrees 1; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
+  \item{p2}{as above}
   \item{a}{Equatorial axis of ellipsoid}
   \item{b}{Polar axis of ellipsoid}
   \item{f}{Inverse flattening of ellipsoid}

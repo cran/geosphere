@@ -1,26 +1,22 @@
 \name{geosphere-package}
 \alias{geosphere-package}
+
 \alias{geosphere}
+
 \docType{package}
-\title{Spherical Trigonometry}
+
+\title{Geosphere}
 
 \description{
-Spherical trigonometry for geographic applications, such as great circle distance and distance along a rhumb line.
-}
+This package implements spherical trigonometry functions for geographic applications. There are functions to compute distance and direction (bearing, azimuth, course) along Great Circles (= shortest distance on a sphere, or "as the crow flies") and along rhumb lines (lines of constant direction). There are also funtctions to compute intersections of great circles, and of rhumb lines, and daylength.
 
-\details{
-\tabular{ll}{
-Package: \tab geosphere\cr
-Type: \tab Package\cr
-Version: \tab 1.0.0\cr
-Date: \tab 6-Feb-2010\cr
-License: \tab GPL3\cr
-LazyLoad: \tab yes\cr
-}
+Geographic locations must be specified in latitude and longitude in degrees (NOT radians). Degrees are (obviously) in decimal notation. Thus 12 degrees, 30 minutes, 10 seconds = 12 + 10/60 + 30/3600 =  12.175 degrees. The Southern and Western hemispheres have a negative sign.
 
-The functions compute distance and bearing (course) along great circles (= shortest distance on a sphere, or "as the crow flies") and rhumb lines (lines of constant bearing). Geographic locations are always specified in degrees (NOT radians), and the default unit of distance is meter.
+The default unit of distance is meter; but this can be adjusted by supplying a different radius \code{r} to functions.
 
-This is the first version of this package, so please look out for bugs and let us know if you find any.
+Directions are expressed in degrees (N = 0 and 360,  E = 90, S = 180, and W = 270 degrees).
+
+This is one of the first versions of this package, so please look out for bugs and let us know if you find any.
 }
 
 \author{
@@ -38,6 +34,11 @@ Maintainer: Robert J. Hijmans <r.hijmans@gmail.com>
 
 \url{http://mathworld.wolfram.com/SphericalTrigonometry.html}
 }
+
+\section{Acknowledgements}{
+David Purdy for suggestions to improve the package.
+}
+
 
 \keyword{ package }
 \keyword{ spatial }

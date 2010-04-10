@@ -17,8 +17,8 @@ gcLon(p1, p2, lat)
 }
 
 \arguments{
-  \item{p1}{longitude/latitude of point(s), in degrees; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a spatialPoints* object}
-  \item{p2}{as above. Should have same length as p1, or a single point (or vice versa when p1 is a single point}
+  \item{p1}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
+  \item{p2}{as above}
   \item{lat}{a latitude}
 }
 

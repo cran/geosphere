@@ -6,7 +6,6 @@
 # based on an alogrithm described by Ed Williams
 # http://williams.best.vwh.net/intersect.htm
 
-
 # Not used
 #gete <- function(lon, lat) {
 #	ex <- cos(lat)*cos(lon)
@@ -20,7 +19,6 @@ gcIntersect <- function(p1, p2, p3, p4) {
 #intersection of two great circles defined by pt1 to pt2 and pt3 to pt4.
 
 	modlon <- function(lon) { ((lon + pi) %% (2*pi)) - pi  }
-
 
 	einv <- function(e) {
 		lat <- atan2(e[,3], sqrt(e[,1]^2 + e[,2]^2))
@@ -45,31 +43,35 @@ gcIntersect <- function(p1, p2, p3, p4) {
 	eSQRT <- function(e) {
 		return(sqrt(e[,1]^2 + e[,2]^2 + e[,3]^2))
 	}	
-
 	
 	p1 <- .pointsToMatrix(p1)
 	p2 <- .pointsToMatrix(p2)
 	p3 <- .pointsToMatrix(p3)
 	p4 <- .pointsToMatrix(p4)
+	
+	p1 <- cbind(p1[,1], p1[,2], p2[,1], p2[,2])
+	p3 <- cbind(p3[,1], p3[,2], p4[,1], p4[,2])
+	p  <- cbind(p1[,1], p1[,2], p1[,3], p1[,4], p3[,1], p3[,2], p3[,3], p3[,4])
+	
+	p1 <- p[,1:2,drop=FALSE]
+	p2 <- p[,3:4,drop=FALSE]
+	p3 <- p[,5:6,drop=FALSE]
+	p4 <- p[,7:8,drop=FALSE]
+	
+	res <- matrix(NA, nrow=nrow(p1), ncol=4)
+	colnames(res) <- c('lon1', 'lat1', 'lon2', 'lat2')
 
-    .compareDim(p1, p2)
-    .compareDim(p1, p3)
-    .compareDim(p1, p4)
-    .compareDim(p2, p3)
-    .compareDim(p2, p4)
-    .compareDim(p3, p4)
-
-	anti <- antipodal(p1, p2)
-	if (! all(! anti)) { stop('p1 and p2 are antipodal -- cannot define a Great Circle') }
-	anti <- antipodal(p3, p4)
-	if (! all(! anti)) { stop('p3 and p4 are antipodal -- cannot define a Great Circle') }
+	keep <- ! antipodal(p1, p2) | antipodal(p3, p4)
+	keep <- keep & ! apply(p1 == p2, 1, sum) == 2
+	
+	if (sum(keep) == 0) { return(res) }
 
 	toRad <- pi / 180 
-	p1 <- p1 * toRad
-	p2 <- p2 * toRad
-	p3 <- p3 * toRad
-	p4 <- p4 * toRad
-	
+	p1 <- p1[keep, , drop=FALSE] * toRad
+	p2 <- p2[keep, , drop=FALSE] * toRad
+	p3 <- p3[keep, , drop=FALSE] * toRad
+	p4 <- p4[keep, , drop=FALSE] * toRad
+
 	e1Xe2 <- eXe5(p1[,1], p1[,2], p2[,1], p2[,2])
 	e3Xe4 <- eXe5(p3[,1], p3[,2], p4[,1], p4[,2])
 
@@ -84,10 +86,10 @@ gcIntersect <- function(p1, p2, p3, p4) {
 	pts[,1] <- modlon(pts[,1])
 	pts[,3] <- modlon(pts[,3])
 	
-	pts <- pts / toRad
-	colnames(pts) <- c('lon1', 'lat1', 'lon2', 'lat2')
-	rownames(pts) <- NULL
-	return(pts)
+	res[keep,] <- pts / toRad
+	
+	return(res)
  }
+ 
  
  

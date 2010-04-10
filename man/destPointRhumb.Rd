@@ -7,17 +7,17 @@ Destination along a rhumb line
 }
 
 \description{
-Calculate the destination point when travelling along a 'rhumb line' (loxodrome), given a start point, bearing, and distance.
+Calculate the destination point when travelling along a 'rhumb line' (loxodrome), given a start point, direction, and distance.
 }
 
 \usage{
-destPointRhumb(p, brng, dist, r = 6378137)
+destPointRhumb(p, b, d, r = 6378137)
 }
 
 \arguments{
-  \item{p}{longitude/latitude of point(s), in degrees; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a spatialPoints* object}
-  \item{brng}{bearing in degrees}
-  \item{dist}{distance; in the same unit as \code{r} (default is meters)}
+  \item{p}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
+  \item{b}{bearing (direction) in degrees}
+  \item{d}{distance; in the same unit as \code{r} (default is meters)}
   \item{r}{radius of the earth; default = 6378137 m}  
 }
 

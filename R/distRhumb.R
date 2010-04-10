@@ -17,21 +17,21 @@ distRhumb <- function(p1, p2, r=6378137) {
 	p1 <- .pointsToMatrix(p1) * toRad
 	p2 <- .pointsToMatrix(p2) * toRad
   
-    .compareDim(p1, p2)
-  
-	lon1 <- p1[,1]
-	lat1 <- p1[,2]
-	lon2 <- p2[,1]
-	lat2 <- p2[,2]
-
+	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))
+	lon1 <- p[,1]
+	lat1 <- p[,2]
+	lon2 <- p[,3]
+	lat2 <- p[,4]
+	r <- p[,5]
+	
 	dLat <- (lat2-lat1) 
 	dLon <- abs(lon2-lon1)
 	dPhi <- log(tan(lat2/2 + pi/4)/tan(lat1/2 + pi/4))
 
-	q <- vector(length=length(dLat))
 	i <- abs(dLat) > 1e-10 
-	q[i] <- dLat/dPhi
-	q[-i]  <- cos(lat1) 
+	q <- vector(length=length(i))
+	q[i] <- dLat[i]/dPhi[i]
+	q[!i]  <- cos(lat1[!i]) 
 	
   #// if dLon over 180° take shorter rhumb across 180° meridian:
 	dLon[dLon > pi] <- 2*pi - dLon[dLon > pi]  
