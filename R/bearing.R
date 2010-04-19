@@ -1,28 +1,31 @@
-# author of original JavaScript code: Chris Vennes
-# (c) 2002-2009 Chris Veness
-# http://www.movable-type.co.uk/scripts/latlong.html
-# Licence: LGPL, without any warranty express or implied
+# Author: Robert J. Hijmans
+# Date :  March 2010
+# Version 1.0
+# Licence GPL v3
 
-# Port to R by Robert Hijmans
-# October 2009
-# version 0.1
-# Licence: GPL3
 
 bearing <- function(p1, p2) {
-#calculate (initial) bearing between two points
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
 	p2 <- .pointsToMatrix(p2) * toRad
-    .compareDim(p1, p2)
-	lon1 <- p1[,1]
-	lat1 <- p1[,2]
-	lon2 <- p2[,1]
-	lat2 <- p2[,2]
+	p <- cbind(p1[,1], p1[,2], p2[,1], p2[,2])	
+	p1 <- p[, 1:2, drop=FALSE]
+	p2 <- p[, 3:4, drop=FALSE]
 
-	dLon <- (lon2-lon1)
-	y <- sin(dLon) * cos(lat2)
-	x <- cos(lat1)*sin(lat2) - sin(lat1)*cos(lat2)*cos(dLon)
-	b <- atan2(y, x) / toRad
-	names(b) <- 'bearing'
-	return( (b+360) %% 360 )
+	keep <- ! apply(p1 == p2, 1, sum) == 2
+	res <- rep(NA, length=nrow(p1))
+	if (sum(keep) == 0) { return(res) }
+
+	p1 <- p1[keep, , drop=FALSE]
+	p2 <- p2[keep, , drop=FALSE]
+	
+	dLon = p2[,1] - p1[,1] 
+    y = sin(dLon)  * cos(p2[,2]) 
+    x = cos(p1[,2]) * sin(p2[,2]) - sin(p1[,2]) * cos(p2[,2]) * cos(dLon) 
+    azm = atan2(y, x) / toRad
+#    azm[azm < 0] <-  360 + azm[azm < 0] 
+	res[keep] <- (azm+360) %% 360
+	return(res)
 }
+
+

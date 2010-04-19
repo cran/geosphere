@@ -9,7 +9,7 @@ Highest latitude on a great circle
 }
 
 \description{
-What is northern most point that will be reached when following a great circle? Computed with Clairaut's formula. The southern most point is the \code{\link[geosphere]{antipode}} of the northern-most point.
+What is northern most point that will be reached when following a great circle? Computed with Clairaut's formula. The southern most point is the \code{\link[geosphere]{antipode}} of the northern-most point. This does not seem to be very precise; and you could use optimization instead to find this point (see examples)
 }
 
 \usage{
@@ -17,8 +17,8 @@ gcMaxLat(p1, p2)
 }
 
 \arguments{
-  \item{p1}{longitude/latitude of point(s), in degrees; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a spatialPoints* object}
-  \item{p2}{as above. Should have same length as p1, or a single point (or vice versa when p1 is a single point}
+  \item{p1}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
+  \item{p2}{as above}
 }
 
 
@@ -43,6 +43,10 @@ Ed Williams, Chris Veness, Robert Hijmans
 
 \examples{
 gcMaxLat(c(5,52), c(-120,37))
+
+# this seems to be more accurate:
+f <- function(lon){gcLat(c(5,52), c(-120,37), lon)}
+optimize(f, interval=c(-180, 180), maximum=TRUE)
 }
 
 \keyword{ spatial  }

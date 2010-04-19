@@ -16,18 +16,14 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 # source http://www.movable-type.co.uk/scripts/latlong-vincenty.html
 # (c) 2002-2009 Chris Veness
 
+
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
 	p2 <- .pointsToMatrix(p2) * toRad
 	
-	.compareDim(p1, p2)
-	
-	maxdim <- max(dim(p1)[1], dim(p2)[1])
-	if (dim(p1)[1] == 1) {
-		p1 <- matrix(rep(p1, each=maxdim), ncol=2)
-	} else {
-		p2 <- matrix(rep(p2, each=maxdim), ncol=2)
-	}
+	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(a), as.vector(b), as.vector(f))
+	p1 = p[,1:2,drop=FALSE] 
+	p2 = p[,3:4,drop=FALSE] 
 	  
 	res <- vector(length=dim(p1)[1])
     for (i in 1:dim(p1)[1]) {
@@ -39,6 +35,9 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 			lat1 <- p1[i,2]
 			lon2 <- p2[i,1]
 			lat2 <- p2[i,2]
+			a = p[i,5]
+			b = p[i,6]
+			f = p[i,7]
 		
 			L <- (lon2-lon1)
 			U1 <- atan((1-f) * tan(lat1))
@@ -60,7 +59,9 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 				sinAlpha <- cosU1 * cosU2 * sinLambda / sinSigma
 				cosSqAlpha <- 1 - sinAlpha*sinAlpha
 				cos2SigmaM <- cosSigma - 2*sinU1*sinU2/cosSqAlpha
+				
 				if (is.nan(cos2SigmaM)) cos2SigmaM <- 0  #// equatorial line: cosSqAlpha=0 (§6)
+				
 				C <- f/16*cosSqAlpha*(4+f*(4-3*cosSqAlpha))
 				lambdaP <- lambda
 				lambda <- L + (1-C) * f * sinAlpha * (sigma + C*sinSigma*(cos2SigmaM+C*cosSigma*(-1+2*cos2SigmaM*cos2SigmaM)))

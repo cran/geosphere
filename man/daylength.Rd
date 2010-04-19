@@ -13,7 +13,7 @@ daylength(lat, doy)
 
 \arguments{
   \item{lat}{latitude, in degrees. I.e. between -90.0 and 90.0 }
-  \item{doy}{Interger, day of the year (1..365) or (1:366) for leap years; or an object of class Date, or a characterr  Date or character like as 'yyyy-mm-dd', e.g. '1982-11-23' }  
+  \item{doy}{Interger, day of the year (1..365) or (1:366) for leap years; or an object of class Date; or a character that can be coerced into a date, using 'yyyy-mm-dd' format, e.g. '1982-11-23' }  
 }
 
 \value{
