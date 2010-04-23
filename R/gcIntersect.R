@@ -18,8 +18,6 @@
 gcIntersect <- function(p1, p2, p3, p4) {
 #intersection of two great circles defined by pt1 to pt2 and pt3 to pt4.
 
-	modlon <- function(lon) { ((lon + pi) %% (2*pi)) - pi  }
-
 	einv <- function(e) {
 		lat <- atan2(e[,3], sqrt(e[,1]^2 + e[,2]^2))
 		lon <- atan2(-e[,2], e[,1]) 
@@ -83,8 +81,8 @@ gcIntersect <- function(p1, p2, p3, p4) {
 	ll <- einv(eaXeb)
 	ll2 <- cbind(ll[,1] + pi, -ll[,2])
 	pts <- cbind(ll, ll2)
-	pts[,1] <- modlon(pts[,1])
-	pts[,3] <- modlon(pts[,3])
+	pts[,1] <- .normalizeLonRad(pts[,1])
+	pts[,3] <- .normalizeLonRad(pts[,3])
 	
 	res[keep,] <- pts / toRad
 	

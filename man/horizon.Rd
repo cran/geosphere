@@ -1,17 +1,15 @@
-\name{distHorizon}
+\name{horizon}
 
-\alias{distHorizon}
+\alias{horizon}
 
 \title{distance to horizon}
 
 \description{
-Compute distance to the horizon at a given altitude. 
-
-The earth is assumed to be smooth, i.e. mountains and other obstacles are ignored. 
+Partly empirical function to compute the distance to the horizon from a given altitude.  The earth is assumed to be smooth, i.e. mountains and other obstacles are ignored. 
 }
 
 \usage{
-distHorizon(h, r=6378137)
+horizon(h, r=6378137)
 }
 
 \arguments{
@@ -33,8 +31,8 @@ Bowditch, 1995. American Practical Navigator. Table 12.
 \author{ Robert J. Hijmans }
 
 \examples{
-distHorizon(1.80) # me
-distHorizon(324)  # Eiffer tower
+horizon(1.80) # me
+horizon(324)  # Eiffel tower
 }
 
 \keyword{ spatial }

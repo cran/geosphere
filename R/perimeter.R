@@ -1,56 +1,66 @@
 # Robert Hijmans
-# October 2009
-# version 0.1
+# April 2010
+# version 1
 # License GPL3
 
+if (!isGeneric("perimeter")) {
+	setGeneric("perimeter", function(x, ...)
+		standardGeneric("perimeter"))
+}	
 
-.perimeterFromSpatialPolygons <- function(xy, r) {
-	p = xy@polygons
-	n = length(p)
+
+setMethod("perimeter", signature(x='SpatialPolygons'), 
+function(x, r=6378137, ...) {
+	x = x@polygons
+	n = length(x)
 	res = vector(length=n)
 	for (i in 1:n) {
-		parts = length( p[[i]]@Polygons )
+		parts = length( x[[i]]@Polygons )
 		perim = 0
 		for (j in 1:parts) {
-			if (p[[i]]@Polygons[[j]]@hole) {
-				# do nothing
-			} else {
-				crd = p[[i]]@Polygons[[j]]@coords
-				perim = perim + perimeter(crd, r)
+			if (! x[[i]]@Polygons[[j]]@hole) {
+				crd = x[[i]]@Polygons[[j]]@coords
+				perim = perim + perimeter(crd, r=r, ...)
 			}
 		}
 		res[i] = perim
 	}
 	return(res)
-}
+} )
 
-.lenghtFromSpatialLines <- function(xy, r) {
-	p = xy@lines
-	n = length(p)
+
+setMethod("perimeter", signature(x='SpatialLines'), 
+function(x, r=6378137, ...) {
+	x = x@lines
+	n = length(x)
 	res = vector(length=n)
 	for (i in 1:n) {
-		parts = length( p[[i]]@Lines )
+		parts = length( x[[i]]@Lines )
 		lng = 0
 		for (j in 1:parts) {
-			crd = p[[i]]@Lines[[j]]@coords
-			lng = lng + perimeter(crd, r)
+			crd = x[[i]]@Lines[[j]]@coords
+			lng = lng + perimeter(crd, r=r, ...)
 		}
 		res[i] = lng
 	}
 	return(res)
-}
+} )
 
 
-perimeter <- function(xy, r=6378137) {
+setMethod("perimeter", signature(x='data.frame'), 
+function(x, r=6378137, ...) {
+	perimter(as.matrix(x), r, ...)
+}  )
 
-	if (inherits(xy, 'SpatialPolygons')) {
-		return( .perimeterFromSpatialPolygons(xy, r))
-	} else if (inherits(xy, 'SpatialLines')) {
-		return( .lenghtFromSpatialLines(xy, r))
+
+setMethod("perimeter", signature(x='matrix'), 
+function(x, r=6378137, ...) {
+	x <- x[,1:2]
+	if (all.equal(x[1,], x[nrow(x),])) {
+		x <- x[-nrow(x), ]
 	}
-
-	xy2 = rbind(xy[-1,], xy[1,])
-	d = distCosine(xy, xy2, r=r)
+	y = rbind(x[-1,], x[1,])
+	d = distCosine(x, y, r=r)
 	return(sum(d))
-}
+} )
 

@@ -9,7 +9,6 @@
 gcLon <- function(p1, p2, lat) {
 # longitudes at which a given great circle crosses a given parallel
 # source: http://williams.best.vwh.net/avform.htm
-	modlon <- function(lon) { ((lon + pi) %% (2*pi)) - pi  }
 	
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) 
@@ -52,8 +51,8 @@ gcLon <- function(p1, p2, lat) {
 	dlon <- A
 	dlon[] <- NA
 	dlon[i] = acos(C[i]/sqrt(A[i]^2+B[i]^2))
-	lon3[i,1] <- modlon(lon1[i]+dlon[i]+lon[i])
-	lon3[i,2] <- modlon(lon1[i]-dlon[i]+lon[i])
+	lon3[i,1] <- .normalizeLonRad(lon1[i]+dlon[i]+lon[i])
+	lon3[i,2] <- .normalizeLonRad(lon1[i]-dlon[i]+lon[i])
 	
 	res[anti,] <- -1 * lon3  / toRad
 

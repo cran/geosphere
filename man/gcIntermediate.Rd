@@ -1,4 +1,4 @@
-\name{greatCircleIntermediat}
+\name{gcIntermediate}
 \Rdversion{1.1}
 
 \alias{gcIntermediate}

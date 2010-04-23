@@ -1,5 +1,5 @@
 
-distHorizon <- function(h, r=6378137) {
+horizon <- function(h, r=6378137) {
 	x = cbind(as.vector(h), as.vector(r))
 	h = x[,1]
 	r = x[,2]
