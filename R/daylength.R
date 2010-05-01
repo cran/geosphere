@@ -2,28 +2,22 @@
 # License GPL3
 # Version 0.1  January 2009
 
-.doyFromDate <- function(date) {
-	date <- as.character(date)
-	as.numeric(format(as.Date(date), "%j"))
-}
 
 daylength <- function(lat, doy) {
+
 	if (class(doy) == 'Date' | class(doy) == 'character') { 
-		doy <- .doyFromDate(doy) 
+		doy <- as.character(doy)
+		doy <- as.numeric(format(as.Date(doy), "%j"))
+	} else {
+		doy <- (doy-1) %% 365 + 1
 	}
+
 	lat[lat > 90 | lat < -90] <- NA 
 
-	doy[doy==366] <- 365
-	doy[doy < 1] <- 365 + doy[doy < 1]
-	doy[doy > 365] <- doy[doy > 365] - 365 
-	if (isTRUE(any(doy<1))  | isTRUE(any(doy>365))) {
-		stop('cannot understand value for doy') 
-	}
-	
 #Forsythe, William C., Edward J. Rykiel Jr., Randal S. Stahl, Hsin-i Wu and Robert M. Schoolfield, 1995.
 #A model comparison for daylength as a function of latitude and day of the year. Ecological Modeling 80:87-95.
 	P <- asin(0.39795 * cos(0.2163108 + 2 * atan(0.9671396 * tan(0.00860*(doy-186)))))
-	a <-  (sin(0.8333 * pi/180) + sin(lat * pi/180) * sin(P)) / (cos(lat * pi/180) * cos(P));
+	a <-  (sin(0.8333 * pi/180) + sin(lat * pi/180) * sin(P)) / (cos(lat * pi/180) * cos(P))
 	a <- pmin(pmax(a, -1), 1)
 	DL <- 24 - (24/pi) * acos(a)
 	return(DL)
@@ -32,15 +26,15 @@ daylength <- function(lat, doy) {
 
 .daylength2 <- function(lat, doy) {
 	if (class(doy) == 'Date' | class(doy) == 'character') { 
-		doy <- .doyFromDate(doy) 
+		doy <- as.character(doy)
+		doy <- as.numeric(format(as.Date(doy), "%j"))
+	} else {
+		doy <- (doy-1) %% 365 + 1
 	}
+
 	lat[lat > 90 | lat < -90] <- NA 
-	doy[doy==366] <- 365
-	doy[doy < 1] <- 365 + doy[doy < 1]
-	doy[doy > 365] <- doy[doy > 365] - 365 
-	if (isTRUE(any(doy<1))  | isTRUE(any(doy>365))) {
-		stop('cannot understand value for doy') 
-	}
+
+	doy <- (doy-1) %% 365 + 1
 
 # after Goudriaan and Van Laar
 	RAD <- pi/180

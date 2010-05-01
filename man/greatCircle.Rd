@@ -23,7 +23,7 @@ greatCircle(p1, p2, n=360)
 
 
 \value{
-a matrix of points
+A matrix of points, or a list of such matrices (e.g., if multiple bearings are supplied) 
 }
 
 \references{

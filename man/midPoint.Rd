@@ -26,13 +26,13 @@ A pair of coordinates (longitude/latitude)
 }
 
 \references{
-\url{http://www.movable-type.co.uk/scripts/latlong.html}
-
+\url{http://mathforum.org/library/drmath/view/51822.html}
 \url{http://en.wikipedia.org/wiki/Great_circle_distance}
+\url{http://www.movable-type.co.uk/scripts/latlong.html}
 }
 
 \author{
-Chris Veness; ported to R by Robert Hijmans
+Chris Veness and Robert Hijmans
 }
 
 \examples{

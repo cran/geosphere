@@ -36,7 +36,7 @@ Maintainer: Robert J. Hijmans <r.hijmans@gmail.com>
 }
 
 \section{Acknowledgements}{
-David Purdy for suggestions to improve the package.
+David Purdy and Bill Monahan for suggestions to improve the package.
 }
 
 

@@ -27,6 +27,12 @@ gcIntersect(p1, p2, p3, p4)
 two points for each pair of great circles
 }
 
+
+\seealso{
+\code{ \link[geosphere]{gcIntersectBearing}  }
+}
+
+
 \references{
 \url{http://williams.best.vwh.net/intersect.htm}
 }

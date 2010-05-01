@@ -1,10 +1,11 @@
-# Author: Robert J. Hijmans and Jacob van Etten
+# Author: Robert J. Hijmans & Jacob van Etten
 # October 2009
-# version 0.1
+# version 1
 # license GPL3
 
 
-.pointsToMatrix <- function(p) {
+
+.pointsToMatrix <- function(p, checkLonLat=TRUE) {
 	if (inherits(p, 'SpatialPoints')) {
 		if (isTRUE (is.projected(p)) ) {
 			stop('data points should be in degrees (longitude / latitude), and not be projected')  
@@ -28,20 +29,22 @@
 		cn <- colnames(p)
 		if (length(cn) == 2) {
 			if (toupper(cn[1]) == 'Y' | toupper(cn[2]) == 'X')  {
-				stop('Suspect column names (x and y reversed?)')
+				warning('Suspect column names (x and y reversed?)')
 			}
 			if (toupper(substr(cn[1],1,3) == 'LAT' | toupper(substr(cn[2],1,3)) == 'LON'))  {
-				stop('Suspect column names (longitude and latitude reversed?)')
+				warning('Suspect column names (longitude and latitude reversed?)')
 			}
 		}		
 	} else {
 		stop('points should be vectors of length 2, matrices with 2 columns, or a SpatialPoints* object')
 	}
 
-	if (min(p[,1], na.rm=TRUE) < -720) { stop('longitude < -720') }
-	if (max(p[,1], na.rm=TRUE) > 720) {  stop('longitude > 720')  }
-	if (min(p[,2], na.rm=TRUE) < -90) {  stop('latitude < -90')  }
-	if (max(p[,2], na.rm=TRUE) > 90) {  stop('latitude > 90')  }
+	if (checkLonLat) {
+		if (min(p[,1], na.rm=TRUE) < -720) { stop('longitude < -720') }
+		if (max(p[,1], na.rm=TRUE) > 720) {  stop('longitude > 720')  }
+		if (min(p[,2], na.rm=TRUE) < -90) {  stop('latitude < -90')  }
+		if (max(p[,2], na.rm=TRUE) > 90) {  stop('latitude > 90')  }
+	}
 	
 	if (! is.numeric(p) ) { p[] <- as.numeric(p) }
 	return(p)

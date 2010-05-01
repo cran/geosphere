@@ -38,7 +38,7 @@ Robert Hijmans
 
 
 \seealso{
-\code{\link[geosphere]{distVincentySphere}, \link[geosphere]{distHaversine}, \link[geosphere]{distCosine}}
+\code{\link[geosphere]{distVincentyEllipsoid}, \link[geosphere]{distHaversine}, \link[geosphere]{distCosine}}
 }
 
 \examples{
