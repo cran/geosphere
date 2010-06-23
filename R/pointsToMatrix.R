@@ -5,10 +5,15 @@
 
 
 
-.pointsToMatrix <- function(p, checkLonLat=TRUE) {
+.pointsToMatrix <- function(p, checkLonLat=TRUE, poly=FALSE) {
 	if (inherits(p, 'SpatialPoints')) {
-		if (isTRUE (is.projected(p)) ) {
-			stop('data points should be in degrees (longitude / latitude), and not be projected')  
+		test <- !is.projected(p)
+		if (! isTRUE (test) ) {
+			if (is.na(test)) {
+				warning('Coordinate reference system of SpatialPoints object is not set. Assuming it is degrees (longitude/latitude)!')  			
+			} else {
+				stop('Points are projected. They should be in degrees (longitude/latitude)')  
+			}
 			# or rather transform them ....?
 		}
 		p <- coordinates(p)
@@ -42,11 +47,21 @@
 	if (checkLonLat) {
 		if (min(p[,1], na.rm=TRUE) < -720) { stop('longitude < -720') }
 		if (max(p[,1], na.rm=TRUE) > 720) {  stop('longitude > 720')  }
+		if (min(p[,1], na.rm=TRUE) < -360) { warning('longitude < -360') }
+		if (max(p[,1], na.rm=TRUE) > 360) {  warning('longitude > 360')  }
 		if (min(p[,2], na.rm=TRUE) < -90) {  stop('latitude < -90')  }
 		if (max(p[,2], na.rm=TRUE) > 90) {  stop('latitude > 90')  }
 	}
 	
 	if (! is.numeric(p) ) { p[] <- as.numeric(p) }
+	
+	if (poly) {
+		if (! isTRUE(all.equal(p[1,], p[nrow(p),]))) {
+			p <- rbind(p, p[1,])
+		} 
+		.isPolygon(p)
+	}
+	
 	return(p)
 }
 

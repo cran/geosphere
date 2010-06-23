@@ -4,7 +4,7 @@
 # License GPL3
 
 
-distm <- function(x, fun=distCosine) {
+distm <- function(x, fun=distHaversine) {
 	x <- .pointsToMatrix(x)
 	n = nrow(x)
 	dm = matrix(ncol=n, nrow=n)
@@ -13,6 +13,20 @@ distm <- function(x, fun=distCosine) {
 	for (i in 2:n) {
 		j = 1:(i-1)
 		dm[i,j] = fun(x[i,], x[j,])
+	}
+	return(dm)
+}
+
+
+distm2 <- function(x, y, fun=distHaversine) {
+	x <- .pointsToMatrix(x)
+	y <- .pointsToMatrix(y)
+	n = nrow(x)
+	m = nrow(y)
+	
+	dm = matrix(ncol=m, nrow=n)
+	for (i in 1:n) {
+		dm[i,] = fun(x[i,], y)
 	}
 	return(dm)
 }

@@ -41,6 +41,7 @@ bearing(c(10,10),c(20,20))
 
 \references{
 \url{http://williams.best.vwh.net/ftp/avsig/avform.txt}
+
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
 }
 

@@ -239,7 +239,8 @@ plot(wrld, type='l', xlim=c(-140,10), ylim=c(15,90), main='Equirectangular')
 lines(pr, col='blue')
 lines(pc, col='red')
 data(merc)
-plot(merc, type='l', xlim=c(-15584729, 1113195), ylim=c(2500000, 22500000), main='Mercator')
+plot(merc, type='l', xlim=c(-15584729, 1113195), 
+                     ylim=c(2500000, 22500000), main='Mercator')
 lines(mercator(pr), col='blue')
 lines(mercator(pc), col='red')
 @
@@ -247,19 +248,23 @@ lines(mercator(pc), col='red')
 
 \section{Characterizing polygons}
 
-The package has functions to compute the area, perimeter, centroid, and 'span' of a spherical polygon. One approach to compute these measures is to project the polygons first. Here we directly compute them based on sperhical coordiantes (longitude / latitude), except for centroid, which is computed by projecting the data to the Mercator projection (and inversely projecting the result). The function makePoly inserts additional vertices into a spherical polygon such that it can be plotted (perhaps after first projecting it) more correctly in a plane. Vertices are inserted, where necessary, at a speficief distance. The function is only beneficial for polygons with large inter-vertex distances.
+The package has functions to compute the area, perimeter, centroid, and 'span' of a spherical polygon. One approach to compute these measures is to project the polygons first. Here we directly compute them based on sperhical coordiantes (longitude / latitude), except for centroid, which is computed by projecting the data to the Mercator projection (and inversely projecting the result). The function makePoly inserts additional vertices into a spherical polygon such that it can be plotted (perhaps after first projecting it) more correctly in a plane. Vertices are inserted, where necessary, at a speficief distance. The function is only beneficial for polygons with large inter-vertex distances (in terms of longitude), particularly at high latitudes.
 
 <<fig=TRUE , echo=TRUE>>=
-pol <- rbind(c(-180,-20), c(-160,5), c(-60, 0), c(-160,-60), c(-180,-20))
+pol <- rbind(c(-120,-20), c(-80,5), c(0, -20), c(-40,-60), c(-120,-20))
 areaPolygon(pol)
 perimeter(pol)
 centroid(pol)
 span(pol, fun=max)
 nicepoly = makePoly(pol)
-plot(pol)
+plot(pol, xlab='longitude', ylab='latitude', cex=2, lwd=3, xlim=c(-140, 0))
+lines(wrld, col='grey')
 lines(pol, col='red', lwd=2)
 lines(nicepoly, col='blue', lwd=2)
-points(centroid(pol), pch='*', cex=3)
+points(centroid(pol), pch='*', cex=3, col='dark green')
+text(centroid(pol)-c(0,2.5), 'centroid')
+legend(-140, -48, c('planar','spherical'), lty=1, lwd=2, 
+                 col=c('red', 'blue'), title='polygon type')
 @
 
 
@@ -286,7 +291,7 @@ legend(0,24, c('1','80','172'), lty=1, lwd=2, col=c('black', 'green', 'blue'),
 
 \noindent Sinnott, R.W, 1984. Virtues of the Haversine. Sky and Telescope 68(2): 159 
 
-\noindent Vincenty, T. 1975. Direct and inverse solutions of geodesics on the ellipsoid with application of nested equations. Survey Review 23(176): 88-93. Available here: \url{http://www.movable-type.co.uk/scripts/latlong-vincenty.html} 
+\noindent Vincenty, T. 1975. Direct and inverse solutions of geodesics on the ellipsoid with application of nested equations. Survey Review 23(176): 88-93. Available here: \url{http://www.ngs.noaa.gov/PUBS_LIB/inverse.pdf} 
 
 
 \end{hangparas}
