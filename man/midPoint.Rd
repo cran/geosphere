@@ -27,7 +27,9 @@ A pair of coordinates (longitude/latitude)
 
 \references{
 \url{http://mathforum.org/library/drmath/view/51822.html}
+
 \url{http://en.wikipedia.org/wiki/Great_circle_distance}
+
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
 }
 

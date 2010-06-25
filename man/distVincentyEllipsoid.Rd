@@ -52,7 +52,7 @@ Distance value in the same units as the ellipsoid (default is meters)
 
 \references{
 Vincenty, T. 1975. Direct and inverse solutions of geodesics on the ellipsoid with application of nested equations. Survey Review Vol. 23, No. 176, pp88-93.
-Available here: \url{http://www.movable-type.co.uk/scripts/latlong-vincenty.html}
+Available here: 
 
 \url{http://www.movable-type.co.uk/scripts/latlong-vincenty.html}
 

@@ -29,8 +29,8 @@ function(x) {
 
 setMethod("centroid", signature(x='matrix'), 
 function(x) {
-	x <- .pointsToMatrix(x)
-	.isPolygon(x)
+
+	x <- .pointsToMatrix(x, poly=TRUE)
 
 	dif1 <- max(x[,1]) - min(x[,1])
 	rotated <- FALSE

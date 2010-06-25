@@ -49,8 +49,8 @@ function(x, r=6378137, ...) {
 
 setMethod("perimeter", signature(x='data.frame'), 
 function(x, r=6378137, ...) {
-	perimter(as.matrix(x), r, ...)
-}  )
+	perimeter(as.matrix(x), r, ...)
+} )
 
 
 setMethod("perimeter", signature(x='matrix'), 
@@ -60,7 +60,7 @@ function(x, r=6378137, ...) {
 		x <- x[-nrow(x), ]
 	}
 	y = rbind(x[-1,], x[1,])
-	d = distCosine(x, y, r=r)
+	d = distHaversine(x, y, r=r)
 	return(sum(d))
 } )
 
