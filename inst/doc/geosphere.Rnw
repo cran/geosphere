@@ -9,7 +9,7 @@
 \usepackage{hanging}
 
 
-%\VignetteIndexEntry{The geosphere package}
+%\VignetteIndexEntry{Introduction to the geosphere package}
 
 \SweaveOpts{keep.source=TRUE}
 
@@ -20,7 +20,7 @@ options(keep.source = TRUE, width = 60)
 foo <- packageDescription("geosphere")
 @
 
-\title{The "geosphere" package (Version \Sexpr{foo$Version})}
+\title{Introduction to the "geosphere" package (Version \Sexpr{foo$Version})}
 \author{Robert J. Hijmans}
 \maketitle
 
@@ -37,9 +37,8 @@ Geographic locations must be specified in longitude and latitude (and in that or
 
 The default unit of distance is meter; but this can be adjusted by supplying a different radius 'r' to functions. Directions are expressed in degrees (N = 0 and 360,  E = 90, S = 180, and W = 270 degrees). Arguments of functions that take several arguments (e.g. points, bearings, radius of the earth), are cbind-ed together.
 
-The functions in this package are mostly based on formulae provided by Ed Williams (\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}, and partly on javascript implementations of these formulae by Chris Veness (\url{http://www.movable-type.co.uk/scripts/latlong.html} )
+Many functions in this package are based on formulae provided by Ed Williams (\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}, and partly on javascript implementations of these formulae by Chris Veness (\url{http://www.movable-type.co.uk/scripts/latlong.html} )
 
-This is one of the first versions of this package, so please look out for bugs and let us know if you find any.
 
 
 \section{Great circle distance}
@@ -266,6 +265,20 @@ text(centroid(pol)-c(0,2.5), 'centroid')
 legend(-140, -48, c('planar','spherical'), lty=1, lwd=2, 
                  col=c('red', 'blue'), title='polygon type')
 @
+
+
+\section{Sampling}
+
+Random or regular sampling of longitude/latitude values on the globe needs to condsider that the globe is spherical. That is, if you would take random points for latitude between -90 and 90 and for longitude between -180 and 180, the density of points would be higher near the poles than near the equator.
+In contrast, functions 'randomCoordinates' and 'randomCoordinates' return samples that are spatially balanced.
+<<fig=TRUE , echo=TRUE>>=
+plot(wrld, type='l', col='grey')
+a = randomCoordinates(500)
+points(a, col='blue', pch=20, cex=0.5)
+b = regularCoordinates(3)
+points(b, col='red', pch='x')
+@
+
 
 
 \section{Daylength}
