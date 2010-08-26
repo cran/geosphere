@@ -2,9 +2,9 @@
 
 \alias{daylength}
 
-\title{ date routines }
+\title{ Daylength }
 \description{
-Compute daylength for a latitude and date.
+Compute daylength (photoperiod) for a latitude and date.
 }
 
 \usage{
@@ -12,8 +12,8 @@ daylength(lat, doy)
 }
 
 \arguments{
-  \item{lat}{latitude, in degrees. I.e. between -90.0 and 90.0 }
-  \item{doy}{Interger, day of the year (1..365) for leap years; or an object of class Date; or a character that can be coerced into a date, using 'yyyy-mm-dd' format, e.g. '1982-11-23' }  
+\item{lat}{latitude, in degrees. I.e. between -90.0 and 90.0 }
+\item{doy}{Interger, day of the year (1..365) for leap years; or an object of class Date; or a character that can be coerced into a date, using 'yyyy-mm-dd' format, e.g. '1982-11-23' }  
 }
 
 \value{
@@ -29,6 +29,11 @@ Forsythe, William C., Edward J. Rykiel Jr., Randal S. Stahl, Hsin-i Wu and Rober
 \examples{
 daylength(-25, '2010-10-10')
 daylength(45, 1:365)
+
+# average monthly daylength
+dl <- daylength(45, 1:365)
+tapply(dl, rep(1:12, c(31,28,31,30,31,30,31,31,30,31,30,31)), mean)
+
 }
 
 \keyword{ spatial }

@@ -7,7 +7,7 @@
 \title{Mid-point}
 
 \description{
-Mid-point between two points along a great circle
+Find the point half-way between two points along a great circle
 }
 
 \usage{
@@ -34,7 +34,7 @@ A pair of coordinates (longitude/latitude)
 }
 
 \author{
-Chris Veness and Robert Hijmans
+Robert Hijmans, based on code by Chris Vennes
 }
 
 \examples{

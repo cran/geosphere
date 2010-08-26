@@ -4,7 +4,7 @@
 \alias{distHaversine}
 
 \title{
-'Havesine' great circle distance
+'Haversine' great circle distance
 }
 
 \description{

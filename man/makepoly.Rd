@@ -1,19 +1,22 @@
 \name{makePoly}
 
 \alias{makePoly}
+\alias{makeLine}
   
-\title{make a polygon}
+\title{Add vertices to a polygon or line}
 
 \description{
-Make a polygon by adding intermedate points (vertices) inbetween the points supplied. This is relevant when vertices are relativly far apart. It can assure the shape of the polygon to be accurate, when plotted on a plane, is accurate.
+Make a polygon or line by adding intermedate points (vertices) on the great circles inbetween the points supplied. This can be relevant when vertices are relatively far apart. 
+It can make the shape of the object to be accurate, when plotted on a plane. \code{makePoly} will also close the polygon if needed.
 }
 
 \usage{
 makePoly(p, interval=10000, r=6378137, sp=FALSE)
+makeLine(p, interval=10000, r=6378137, sp=FALSE)
 }
 
 \arguments{
-\item{p}{a 2-column matrix (longitude/latitude)}
+\item{p}{a 2-column matrix (longitude/latitude) or a SpatialPolygons or SpatialLines object}
 \item{interval}{maximum interval of points, in units of r}
 \item{r}{radius of the earth; default = 6378137}  
 \item{sp}{Logical. If \code{TRUE}, a SpatialPolygons object is retunred (depends on the 'sp' package)}
