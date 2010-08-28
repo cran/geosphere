@@ -31,7 +31,7 @@ This vignette describes the R package '\verb@geosphere@'. The package implements
 
 There are a number of functions to compute distance and direction (= bearing, azimuth, course) along great circles (= shortest distance on a sphere, or "as the crow flies") and along rhumb lines (lines of constant bearing). 
 
-Other functions include the computation of the location of an object at a given direction and distance; and the area, perimiter, and centroid of a spherial polygon. 
+Other functions include the computation of the location of an object at a given direction and distance; and the area, perimeter, and centroid of a spherical polygon. 
 
 Geographic locations must be specified in longitude and latitude (and in that order!) in degrees (i.e., NOT in radians). Degrees are (obviously) in decimal notation. Thus 12 degrees, 30 minutes, 10 seconds = 12 + 10/60 + 30/3600 =  12.175 degrees. The southern and western hemispheres have a negative sign.
 
@@ -76,7 +76,7 @@ plot(dvsp/1000, (dvsp-dvse)/1000, col='blue', xlab='Vincenty Sphere Distance (km
 
 \section{Points on great circles}
 
-Points on a great circle are returned by the function 'greatCircle', using two points on the great circle to define it, and an additional argument to indicate how many points should be returned. You can also use greatCircleBearing, and provide starting points and bearing as arguments. gcIntermediate only returns points on the great circle that are on the track of shortest distance between the two points defining the great circle; and midPoint computes the point half-way between the two points.
+Points on a great circle are returned by the function 'greatCircle', using two points on the great circle to define it, and an additional argument to indicate how many points should be returned. You can also use greatCircleBearing, and provide starting points and bearing as arguments. gcIntermediate only returns points on the great circle that are on the track of shortest distance between the two points defining the great circle; and midPoint computes the point half-way between the two points. You can use onGreatCircle to test whether a point is on a great circle between two other points.
 
 <<fig=TRUE , echo=TRUE>>=
 LA <- c(-118.40, 33.95)
@@ -89,6 +89,7 @@ gci <- gcIntermediate(LA, NY)
 lines(gci, lwd=4, col='green')
 points(rbind(LA, NY), col='red', pch=20, cex=2)
 mp <- midPoint(LA, NY)
+onGreatCircle(LA,NY, rbind(mp,c(0,0)))
 points(mp, pch='*', cex=3, col='orange')
 greatCircleBearing(LA, brng=270, n=10)
 @
@@ -155,7 +156,7 @@ gcIntersectBearing(LA, bearing1, SF, bearing2)
 
 \section{Triangulation}
 
-Below is triangulation example. We have three locations (NY, LA, MS) and three directions (281, 60, 195) towards a target. Because we are on a sphere, there are two (antipodal) results. We only show one here (by only using int[,1:2]). We compute the centroid from the polygon defined with the three points. To accurately draw a spherical polygon, we can use makePoly. This function inserts intermediate points along the paths between the vertices proviced (default is one point every 10 km).
+Below is triangulation example. We have three locations (NY, LA, MS) and three directions (281, 60, 195) towards a target. Because we are on a sphere, there are two (antipodal) results. We only show one here (by only using int[,1:2]). We compute the centroid from the polygon defined with the three points. To accurately draw a spherical polygon, we can use makePoly. This function inserts intermediate points along the paths between the vertices provided (default is one point every 10 km).
 
 <<fig=TRUE , echo=TRUE>>=
 MS <- c(-93.26, 44.98)
@@ -216,6 +217,22 @@ distCosine(p, MS)
 @
 
 
+\section{Distance to a polyline}
+
+The two function describe above are used in the distPoint2Lines function that computes the shortest distance between a set of points and a set of spherical polylines (or polygons).
+
+<<fig=TRUE , echo=TRUE>>=
+line <- rbind(c(-180,-20), c(-150,-10), c(-140,55), c(10, 0), c(-140,-60))
+pnts <- rbind(c(-170,0), c(-75,0), c(-70,-10), c(-80,20), c(-100,-50),
+           c(-100,-60), c(-100,-40), c(-100,-20), c(-100,-10), c(-100,0))
+d = distPoint2Line(pnts, line)
+plot( makeLine(line), type='l')
+points(line)
+points(pnts, col='blue', pch=20)
+points(d[,2], d[,3], col='red', pch='x', cex=2)
+for (i in 1:nrow(d)) lines(gcIntermediate(pnts[i,], d[i,2:3], 10), lwd=2, col='green')
+@
+
 
 \section{Rhumb lines}
 
@@ -247,7 +264,7 @@ lines(mercator(pc), col='red')
 
 \section{Characterizing polygons}
 
-The package has functions to compute the area, perimeter, centroid, and 'span' of a spherical polygon. One approach to compute these measures is to project the polygons first. Here we directly compute them based on sperhical coordiantes (longitude / latitude), except for centroid, which is computed by projecting the data to the Mercator projection (and inversely projecting the result). The function makePoly inserts additional vertices into a spherical polygon such that it can be plotted (perhaps after first projecting it) more correctly in a plane. Vertices are inserted, where necessary, at a speficief distance. The function is only beneficial for polygons with large inter-vertex distances (in terms of longitude), particularly at high latitudes.
+The package has functions to compute the area, perimeter, centroid, and 'span' of a spherical polygon. One approach to compute these measures is to project the polygons first. Here we directly compute them based on spherical coordinates (longitude / latitude), except for centroid, which is computed by projecting the data to the Mercator projection (and inversely projecting the result). The function makePoly inserts additional vertices into a spherical polygon such that it can be plotted (perhaps after first projecting it) more correctly in a plane. Vertices are inserted, where necessary, at a specified distance. The function is only beneficial for polygons with large inter-vertex distances (in terms of longitude), particularly at high latitudes.
 
 <<fig=TRUE , echo=TRUE>>=
 pol <- rbind(c(-120,-20), c(-80,5), c(0, -20), c(-40,-60), c(-120,-20))
@@ -269,7 +286,7 @@ legend(-140, -48, c('planar','spherical'), lty=1, lwd=2,
 
 \section{Sampling}
 
-Random or regular sampling of longitude/latitude values on the globe needs to condsider that the globe is spherical. That is, if you would take random points for latitude between -90 and 90 and for longitude between -180 and 180, the density of points would be higher near the poles than near the equator.
+Random or regular sampling of longitude/latitude values on the globe needs to consider that the globe is spherical. That is, if you would take random points for latitude between -90 and 90 and for longitude between -180 and 180, the density of points would be higher near the poles than near the equator.
 In contrast, functions 'randomCoordinates' and 'randomCoordinates' return samples that are spatially balanced.
 <<fig=TRUE , echo=TRUE>>=
 plot(wrld, type='l', col='grey')

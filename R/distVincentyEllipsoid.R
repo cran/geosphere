@@ -30,6 +30,8 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 
 		if (isTRUE(all.equal(p1[i,], p2[i,]))) {
 			res[i] <- 0
+		} else if ( any( is.na( c(p1[i,], p2[i,])))) {  #improvement by George Wang
+			res[i] <- NA
 		} else {
 			lon1 <- p1[i,1]
 			lat1 <- p1[i,2]

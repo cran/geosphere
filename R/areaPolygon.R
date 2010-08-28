@@ -20,6 +20,18 @@ setMethod('areaPolygon', signature(x='data.frame'),
 
 setMethod('areaPolygon', signature(x='SpatialPolygons'), 
 function(x, r=6378137, ...) {
+
+	test <- !is.projected(x)
+	if (! isTRUE (test) ) {
+		if (is.na(test)) {
+			warning('Coordinate reference system of SpatialPolygons object is not set. Assuming it is degrees (longitude/latitude)!')  			
+		} else {
+			stop('Points are projected. They should be in degrees (longitude/latitude)')  
+		}
+		# or rather transform them ....?
+	}
+
+
 	x = x@polygons
 	n = length(x)
 	res = vector(length=n)
