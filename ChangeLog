@@ -1,3 +1,6 @@
+8 Sept 2010
+bug fix in .pointsToMatrix (reported by Joe)
+
 26 August 2010
 New functions:
 distPoint2Lines computes the (spherical) distance between points and polylines (and polygons borders).

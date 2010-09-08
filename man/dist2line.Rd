@@ -1,7 +1,7 @@
-\name{distPoint2Line}
+\name{dist2Line}
 \Rdversion{1.1}
 
-\alias{distPoint2Line}
+\alias{dist2Line}
 
 \title{
 Distance between points and polylines or (the border of) polygons.
@@ -11,7 +11,7 @@ Distance between points and polylines or (the border of) polygons.
 The shortest distance between points and polylines or polygons. 
 }
 
-\usage{distPoint2Line(p, line, distfun=distHaversine)
+\usage{dist2Line(p, line, distfun=distHaversine)
 }
 
 \arguments{
@@ -22,7 +22,7 @@ The shortest distance between points and polylines or polygons.
 
 
 \value{
-Distance and lon/lat of nearst point. Distance is in the same unit as \code{r} in the \code{distfun}(default is meters)
+Distance and lon/lat of nearest point. Distance is in the same unit as \code{r} in the \code{distfun}(default is meters)
 }
 
 
@@ -34,7 +34,7 @@ George Wang and Robert Hijmans
 \examples{
 line <- rbind(c(-180,-20), c(-150,-10), c(-140,55), c(10, 0), c(-140,-60))
 pnts <- rbind(c(-170,0), c(-75,0), c(-70,-10), c(-80,20), c(-100,-50), c(-100,-60), c(-100,-40), c(-100,-20), c(-100,-10), c(-100,0))
-d = distPoint2Line(pnts, line)
+d = dist2Line(pnts, line)
 plot( makeLine(line), type='l')
 points(line)
 points(pnts, col='blue', pch=20)

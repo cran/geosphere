@@ -1,18 +1,18 @@
-\name{crossTrackDistance}
+\name{crossTrackDistfance}
 \Rdversion{1.1}
 
-\alias{crossTrackDistance}
+\alias{dist2gc}
 
 \title{
 Cross Track Distance
 }
 
 \description{
-The cross track distance (or cross track error) is the distance of a point from a great-circle path. The great circle path is defined by \code{p1} and \code{p2}, while \code{p3} is the point away from the path.
+Compute the distance of a point to a great-circle path (also referred to as the cross track distance or cross track error). The great circle is defined by \code{p1} and \code{p2}, while \code{p3} is the point away from the path.
 }
 
 \usage{
-crossTrackDistance(p1, p2, p3, r=6378137)
+dist2gc(p1, p2, p3, r=6378137)
 }
 
 \arguments{
@@ -47,7 +47,7 @@ Ed Williams and Robert Hijmans
 
 
 \examples{
-crossTrackDistance(c(0,0),c(90,90),c(80,80))
+dist2gc(c(0,0),c(90,90),c(80,80))
 }
 
 
