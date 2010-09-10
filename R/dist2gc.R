@@ -7,7 +7,7 @@
 # version 0.1
 # license GPL3
 
-crossTrackDistance <- function(p1, p2, p3, r=6378137) {
+dist2gc <- function(p1, p2, p3, r=6378137) {
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1)
 	p2 <- .pointsToMatrix(p2)

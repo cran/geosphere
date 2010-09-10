@@ -34,7 +34,7 @@ Ed Williams and Robert Hijmans
 
 
 \seealso{
-\code{ \link[geosphere]{crossTrackDistance}  }
+\code{ \link[geosphere]{dist2gc}  }
 }
 
 \examples{

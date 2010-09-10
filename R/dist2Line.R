@@ -24,7 +24,7 @@
 		parts = length(x[[i]]@Lines )
 		for (j in 1:parts) {
 			crd = x[[i]]@Lines[[j]]@coords
-			r <- distPoint2Line(p, crd, distfun)
+			r <- dist2Line(p, crd, distfun)
 			k <- r[,1] < res[,1]
 			res[k, ] <- r[k, ]
 		}
@@ -33,7 +33,7 @@
 }		
 		
 
-distPoint2Line <- function(p, line, distfun=distHaversine) {
+dist2Line <- function(p, line, distfun=distHaversine) {
 
 	p <- geosphere:::.pointsToMatrix(p)
 	
@@ -54,8 +54,8 @@ distPoint2Line <- function(p, line, distfun=distHaversine) {
 	
 	for (i in 1:nrow(p)) {
 		xy <- p[i,]
-# the crossTrackDistance is the shortest distance of a point to a great circle
-		crossdist <- abs(crossTrackDistance(line1, line2, xy))
+# the shortest distance of a point to a great circle
+		crossdist <- abs(dist2gc(line1, line2, xy))
 		
 # the alongTrackDistance is the length of the path along the great circle to the point of intersection
 # there are two, depending on which node you start

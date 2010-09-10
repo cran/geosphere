@@ -65,7 +65,8 @@
 			p <- rbind(p, p[1,])
 		} 
 
-		i <- which(p[-nrow(p),] == p[-1,])
+		i <- p[-nrow(p),1] == p[-1,1] &  p[-nrow(p),2] == p[-1,2]
+		i <- which(isTRUE(i))
 		if (length(i) > 0) {
 			p <- p[-i, ,drop=FALSE]
 		}
