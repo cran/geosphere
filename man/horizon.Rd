@@ -2,10 +2,10 @@
 
 \alias{horizon}
 
-\title{distance to horizon}
+\title{Distance to the horizon}
 
 \description{
-Partly empirical function to compute the distance to the horizon from a given altitude.  The earth is assumed to be smooth, i.e. mountains and other obstacles are ignored. 
+Empirical function to compute the distance to the horizon from a given altitude.  The earth is assumed to be smooth, i.e. mountains and other obstacles are ignored. 
 }
 
 \usage{
@@ -18,7 +18,7 @@ horizon(h, r=6378137)
 }
 
 \value{
-A distance in units of \code{h} (default is meters)
+Distance in units of \code{h} (default is meters)
 }
 
 \references{

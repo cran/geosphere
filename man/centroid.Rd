@@ -5,7 +5,7 @@
 \alias{centroid,data.frame-method}
 \alias{centroid,SpatialPolygons-method}
   
-\title{centroid of polygons}
+\title{Centroid of spherical polygons}
 
 \description{
 Compute the centroid of longitude/latitude polygons. Unlike other functions in this package, there is no spherical trigonomery involved in the implementation of this function. Instead, the function projects the polygon to the (conformal) Mercator coordinate reference system, computes the centroid, and then inversely projects it to longitude and latitude. This approach fails for polygons that include one of the poles. The function should work for polygons that cross the -180/180 meridian (date line). 

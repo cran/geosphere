@@ -4,7 +4,7 @@
 \alias{dist2Line}
 
 \title{
-Distance between points and polylines or (the border of) polygons.
+Distance between points and lines or (the border of) polygons.
 }
 
 \description{
@@ -16,15 +16,14 @@ The shortest distance between points and polylines or polygons.
 
 \arguments{
   \item{p}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
-  \item{line}{as above}
+  \item{line}{longitude/latitude of line as a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialLines* or SpatialPolygons* object}
   \item{distfun}{A distance function, such as \link[geosphere]{distHaversine}}  
 }
 
 
 \value{
-Distance and lon/lat of nearest point. Distance is in the same unit as \code{r} in the \code{distfun}(default is meters)
+Distance and lon/lat of the nearest point on the line. Distance is in the same unit as \code{r} in the \code{distfun}(default is meters)
 }
-
 
 \author{
 George Wang and Robert Hijmans
@@ -43,5 +42,4 @@ for (i in 1:nrow(d)) lines(gcIntermediate(pnts[i,], d[i,2:3], 10), lwd=2)
 }
 
 \keyword{ spatial }
-
 
