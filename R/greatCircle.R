@@ -4,7 +4,13 @@
 # license GPL
 
 
-greatCircle <- function(p1, p2, n=360) {
+greatCircle <- function(p1, p2, n=360, sp=FALSE) {
+	if (sp) {
+		if (! require(sp)) {
+			stop('you need to install the "sp" package first')
+		}
+	}
+
 	p1 <- .pointsToMatrix(p1)
 	p2 <- .pointsToMatrix(p2)
 
@@ -16,16 +22,29 @@ greatCircle <- function(p1, p2, n=360) {
 	if (nrow(p) == 1) {
 		lon <- (1:n * 360 / n) - 180
 		lat <- gcLat(p1, p2, lon) 
-		return( cbind(lon,lat) )
+		res <- cbind(lon,lat) 
+		if (sp) {
+			lat <- gcLat(p1, p2, 180)
+			res <- list(rbind(cbind(-180, lat), res))
+			res <- SpatialLines( list( Lines( list( Line (res)), ID=as.character(1)) ),  CRS("+proj=longlat +ellps=WGS84"))
+		}
 	} else {
 		res <- list()
-		for (i in 1:nrow(p)) {
+		for (i in 1:nrow(p1)) {
 			lon <- (1:n[i] * 360 / n[i]) - 180
 			lat <- gcLat(p1[i,], p2[i,], lon) 
 			res[[i]] <- cbind(lon, lat)
 		}
-		return(res)
+		if (sp) {
+			for (i in 1:length(res)) {
+				lat <- gcLat(p1[i,], p2[i,], 180)
+				res[[i]] <- rbind(cbind(-180, lat), res[[i]])
+				res[[i]] <- Lines( list( Line (res[[i]])), ID=as.character(i)) 	
+			}
+			res <- SpatialLines(res, CRS("+proj=longlat +ellps=WGS84"))
+		}
 	}
+	return(res)
 }
 
 #greatCircle(rbind(cbind(5,52), cbind(5,15)), c(-120,37), n=12)

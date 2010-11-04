@@ -1,9 +1,12 @@
+4 Nov 2010
+Additional options to gcIntermediate and greatCircle to return SpatalLines (that are cut in two when crossing the date line)
+
 8 Sept 2010
 bug fix in .pointsToMatrix (reported by Joe)
 
 26 August 2010
 New functions:
-distPoint2Lines computes the (spherical) distance between points and polylines (and polygons borders).
+dist2Line computes the (spherical) distance between points and polylines (and polygons borders).
 makeLine (like makePoly), adds intermediate great circle points to line segments, for better plotting
 onGreatCircle tests if points are on a specified great circle
 

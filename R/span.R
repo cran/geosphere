@@ -70,7 +70,7 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 		pp <- x[i,]
 		rs <- raster(pp)
 		if (nbands == 'fixed') {
-			rowcol(rs) <- c(n, n)
+			dim(rs) <- c(n, n)
 		} else {
 			res(rs) <- res
 		}

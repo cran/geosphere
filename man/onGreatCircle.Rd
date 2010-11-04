@@ -4,7 +4,7 @@
 \alias{onGreatCircle}
 
 \title{
-Is a point an a given great circle
+Is a point on a given great circle?
 }
 
 \description{

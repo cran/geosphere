@@ -4,7 +4,7 @@
 \alias{bearing}
 
 \title{
-bearing of travel
+Direction of travel
 }
 
 \description{
@@ -22,7 +22,7 @@ bearing(p1, p2)
 
 
 \value{
-A bearing in degrees
+Bearing in degrees
 }
 
 
