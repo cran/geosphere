@@ -2,7 +2,6 @@
 \Rdversion{1.1}
 
 \alias{distm}
-\alias{distm2}
 
 \title{
 Distance matrix
@@ -13,13 +12,12 @@ Distance matrix of a set of points, or between two sets of points
 }
 
 \usage{
-distm(x, fun=distHaversine)
-distm2(x, y, fun=distHaversine)
+distm(x, y, fun=distHaversine)
 }
 
 \arguments{
   \item{x}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
-  \item{y}{Same as \code{x}}
+  \item{y}{Same as \code{x}. If missing, y is the same as x}
   \item{fun}{A function to compute distances (e.g., distCosine, distHaversine, distVincenty*)}  
 }
 
@@ -44,7 +42,7 @@ Robert Hijmans
 xy <- rbind(c(0,0),c(90,90),c(10,10),c(-120,-45))
 distm(xy)
 xy2 <- rbind(c(0,0),c(10,-10))
-distm2(xy, xy2)
+distm(xy, xy2)
 }
 
 \keyword{ spatial }

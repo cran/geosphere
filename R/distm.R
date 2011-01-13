@@ -4,8 +4,7 @@
 # License GPL3
 
 
-distm <- function(x, fun=distHaversine) {
-	x <- .pointsToMatrix(x)
+.distm1 <- function(x, fun) {
 	n = nrow(x)
 	dm = matrix(ncol=n, nrow=n)
 	dm[cbind(1:n, 1:n)] = 0
@@ -18,8 +17,13 @@ distm <- function(x, fun=distHaversine) {
 }
 
 
-distm2 <- function(x, y, fun=distHaversine) {
+distm <- function(x, y, fun=distHaversine) {
 	x <- .pointsToMatrix(x)
+	
+	if (missing(y)) {
+		return( .distm1(x, fun) )
+	}
+	
 	y <- .pointsToMatrix(y)
 	n = nrow(x)
 	m = nrow(y)

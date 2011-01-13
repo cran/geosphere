@@ -3,7 +3,7 @@
 # version 0.1
 # license GPL
 
-gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FALSE, sp=FALSE ) {
+gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FALSE, sp=FALSE, sepNA=FALSE ) {
 # Intermediate points on a great circle
 # source: http://williams.best.vwh.net/avform.htm
 
@@ -67,7 +67,13 @@ gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FAL
 					x1[tr,1] <- 180 
 					x2[1,1] <- -180 
 				}
-				res[[i]] <- list(x1, x2)
+				if (nrow(x1) <= 1) {
+					res[[i]] <- x2
+				} else if (nrow(x2) <= 1) {
+					res[[i]] <- x1
+				} else {
+					res[[i]] <- list(x1, x2)
+				}
 			} else {
 				res[[i]] <- x
 			}
@@ -77,6 +83,7 @@ gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FAL
 	}
 	
 	if (sp) {
+		require(sp)
 		for (i in 1:length(res)) {
 			if (! is.list(res[[i]])) {
 				res[[i]] <- Lines( list( Line (res[[i]])), ID=as.character(i)) 	
@@ -89,7 +96,13 @@ gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FAL
 		
 	} else if (nrow(p1) == 1 ) {
 		res <- res[[1]]
-	}	
+	} else if (sepNA) {
+		r <- res[[1]]
+		for (i in 2:length(res)) { 
+			r <- rbind(r, c(NA,NA), res[[i]]) 
+		}
+		return(r)
+	}
 	
 	return(res)
 }

@@ -17,10 +17,10 @@
 			# or rather transform them ....?
 		}
 		p <- coordinates(p)
-	}
-	if (is.data.frame(p)) {
+	} else if (is.data.frame(p)) {
 		p <- as.matrix(p)
-	}
+	} else 
+	
 	if (is.vector(p)){
 		if (length(p) != 2) {
 			stop('Wrong length for a vector, should be 2')
@@ -41,19 +41,19 @@
 			}
 		}		
 	} else {
-		stop('points should be vectors of length 2, matrices with 2 columns, or a SpatialPoints* object')
+		stop('points should be vectors of length 2, matrices with 2 columns, or inheriting from a SpatialPoints* object')
 	}
 
 	if (! is.numeric(p) ) { p[] <- as.numeric(p) }
 	
 	if (checkLonLat) {
 		if (length(na.omit(p[,1])) > 0) {
-			if (min(p[,1], na.rm=TRUE) < -720) { stop('longitude < -720') }
-			if (max(p[,1], na.rm=TRUE) > 720) {  stop('longitude > 720')  }
-			if (min(p[,1], na.rm=TRUE) < -360) { warning('longitude < -360') }
+			if (min(p[,1], na.rm=TRUE) < -360) { stop('longitude < -360') }
+			if (max(p[,1], na.rm=TRUE) > 360) {  stop('longitude > 360')  }
+			if (min(p[,1], na.rm=TRUE) < -180) { warning('longitude < -180') }
+			if (max(p[,1], na.rm=TRUE) > 180) {  warning('longitude > 180')  }
 		}
 		if (length(na.omit(p[,2])) > 0) {
-			if (max(p[,1], na.rm=TRUE) > 360) {  warning('longitude > 360')  }
 			if (min(p[,2], na.rm=TRUE) < -90) {  stop('latitude < -90')  }
 			if (max(p[,2], na.rm=TRUE) > 90) {  stop('latitude > 90')  }
 		}

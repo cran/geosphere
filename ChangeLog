@@ -1,14 +1,21 @@
-4 Nov 2010
+-- 13 Jan 2011, version 1.2-18
+New argument sepNA in gcIntermediate, suggested by Lee Butterman
+
+-- 1 Jan 2011, version 1.2-17
+Merged functions distm and distm2 into distm
+Function with new distance algorithm "distMeeus"
+
+-- 4 Nov 2010
 Additional options to gcIntermediate and greatCircle to return SpatalLines (that are cut in two when crossing the date line)
 
-8 Sept 2010
+-- 8 Sept 2010
 bug fix in .pointsToMatrix (reported by Joe)
 
-26 August 2010
+-- 26 August 2010
 New functions:
 dist2Line computes the (spherical) distance between points and polylines (and polygons borders).
 makeLine (like makePoly), adds intermediate great circle points to line segments, for better plotting
 onGreatCircle tests if points are on a specified great circle
 
-25 August 2010
+-- 25 August 2010
 distVincentyEllipsoid now handles NA values. Bug fix suggested by George Wang.
