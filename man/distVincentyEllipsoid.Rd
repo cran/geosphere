@@ -65,7 +65,7 @@ Chris Veness and Robert Hijmans
 
 
 \seealso{
-\code{\link[geosphere]{distVincentySphere}, \link[geosphere]{distHaversine}, \link[geosphere]{distCosine}}
+\code{\link{distVincentySphere}, \link{distHaversine}, \link{distCosine}, \link{distMeeus}}
 }
 
 \examples{

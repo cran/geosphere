@@ -24,7 +24,7 @@ distCosine(p1, p2, r=6378137)
 
 
 \value{
-Distance value in the same unit as \code{r} (default is meters)
+Vector of distances in the same unit as \code{r} (default is meters)
 }
 
 \references{
@@ -36,7 +36,7 @@ Robert Hijmans
 }
 
 \seealso{
-\code{\link[geosphere]{distHaversine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}}
+\code{\link[geosphere]{distHaversine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}, \link{distMeeus}}
 }
 
 \examples{

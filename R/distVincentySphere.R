@@ -11,21 +11,17 @@ distVincentySphere <- function(p1, p2, r=6378137) {
 
 	p1 <- .pointsToMatrix(p1) * toRad
 	p2 <- .pointsToMatrix(p2) * toRad
-
-	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))	
+	p <- cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))	
 	
 	lon1 <- p[,1]
 	lat1 <- p[,2]
 	lon2 <- p[,3]
 	lat2 <- p[,4]
-	r <- p[,5]
 
 	x <- sqrt((cos(lat2) * sin(lon1-lon2))^2 + (cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(lon1-lon2))^2)
 	y <- sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon1-lon2)
 	
-	dist <- r * atan2(x, y)
-	if (is.vector(dist)) { dist <- matrix(dist) }
-	colnames(dist) <- 'distance'
+	dist <- p[,5] * atan2(x, y)
 	return ( dist )
 }
 

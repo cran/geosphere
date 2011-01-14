@@ -8,8 +8,6 @@
 # version 0.1
 # license GPL3
 
-
-
 distHaversine <- function(p1, p2, r=6378137) {
 #* Haversine formula to calculate distance between two points specified by 
 #* from: Haversine formula - r. W. Sinnott, "Virtues of the Haversine",
@@ -23,21 +21,22 @@ distHaversine <- function(p1, p2, r=6378137) {
 	p2 <- .pointsToMatrix(p2) * toRad
 
 	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))
-	
-	lon1 <- p[,1]
-	lat1 <- p[,2]
-	lon2 <- p[,3]
-	lat2 <- p[,4]
-	r <- p[,5]
-	
-	dLat <- (lat2-lat1)
-	dLon <- (lon2-lon1)
-	a <- sin(dLat/2) * sin(dLat/2) + cos(lat1) * cos(lat2) * sin(dLon/2) * sin(dLon/2)
-	c <- 2 * atan2(sqrt(a), sqrt(1-a))
-	dist <- r * c
-
-	if (is.vector(dist)) { dist <- matrix(dist) }
-	colnames(dist) <- 'distance'
-
+		
+	dLat <- (p[,4]-p[,2])
+	dLon <- (p[,3]-p[,1])
+	a <- sin(dLat/2) * sin(dLat/2) + cos(p[,2]) * cos(p[,4]) * sin(dLon/2) * sin(dLon/2)
+	dist <- 2 * atan2(sqrt(a), sqrt(1-a)) * p[,5]
 	return(dist)
 }
+
+#	lon1 <- p[,1]
+#	lat1 <- p[,2]
+#	lon2 <- p[,3]
+#	lat2 <- p[,4]
+#	r <- p[,5]
+#	dLat <- (lat2-lat1)
+#	dLon <- (lon2-lon1)
+#	a <- sin(dLat/2) * sin(dLat/2) + cos(lat1) * cos(lat2) * sin(dLon/2) * sin(dLon/2)
+#	dist <- 2 * atan2(sqrt(a), sqrt(1-a)) * r
+
+

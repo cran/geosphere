@@ -27,7 +27,7 @@ The Haversine ('half-versed-sine') formula was published by R.W. Sinnott in 1984
 }
 
 \value{
-Distance value in the same unit as \code{r} (default is meters)
+Vector of distances in the same unit as \code{r} (default is meters)
 }
 
 
@@ -45,7 +45,7 @@ Chris Veness and Robert Hijmans
 
 
 \seealso{
-\code{\link[geosphere]{distCosine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}}
+\code{\link[geosphere]{distCosine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}, \link{distMeeus}}
 }
 
 \examples{
