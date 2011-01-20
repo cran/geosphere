@@ -29,8 +29,6 @@ distMeeus <- function(p1, p2, a=6378137, f=1/298.257223563) {
 	H2 <- (3*R + 1)/(2*S)
 	dist <- D*( 1 + f*H1*sinF2*cosG2 - f*H2*cosF2*sinG2 )
 
-	dist <- matrix(dist) 
-	colnames(dist) <- 'distance'
-	return ( dist )
+	return ( as.vector(dist ))
 }
 

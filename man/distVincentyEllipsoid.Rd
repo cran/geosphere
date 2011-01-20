@@ -41,6 +41,9 @@ The WGS84 ellipsoid is used by default. It is the best available global ellipsoi
  \tab \code{ Krasovsky 1940     } \tab \code{ 6378245      } \tab \code{ 6356863        } \tab \code{ 1/298.2997381   } \cr
 }
 
+\code{a} is the 'semi-major axis', and \code{b} is the 'semi-minor axis' of the ellipsoid. \code{f} is the flattening.
+Note that \code{f = (a-b)/a}
+
 more info: \url{http://en.wikipedia.org/wiki/Reference_ellipsoid}
 				
 }
