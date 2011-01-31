@@ -20,7 +20,7 @@ options(keep.source = TRUE, width = 60)
 foo <- packageDescription("geosphere")
 @
 
-\title{Introduction to the "geosphere" package (Version \Sexpr{foo$Version})}
+\title{Introduction to the "geosphere" package \\ (Version \Sexpr{foo$Version})}
 \author{Robert J. Hijmans}
 \maketitle
 
@@ -33,7 +33,7 @@ There are a number of functions to compute distance and direction (= bearing, az
 
 Other functions include the computation of the location of an object at a given direction and distance; and the area, perimeter, and centroid of a spherical polygon. 
 
-Geographic locations must be specified in longitude and latitude (and in that order!) in degrees (i.e., NOT in radians). Degrees are (obviously) in decimal notation. Thus 12 degrees, 30 minutes, 10 seconds = 12 + 10/60 + 30/3600 =  12.175 degrees. The southern and western hemispheres have a negative sign.
+Geographic locations must be specified in longitude and latitude (and in that order!) in degrees (i.e., NOT in radians). Degrees are (obviously) in decimal notation. Thus 12 degrees, 10 minutes, 30 seconds = 12 + 10/60 + 30/3600 =  12.175 degrees. The southern and western hemispheres have a negative sign.
 
 The default unit of distance is meter; but this can be adjusted by supplying a different radius 'r' to functions. Directions are expressed in degrees (N = 0 and 360,  E = 90, S = 180, and W = 270 degrees). If arguments of functions that take several arguments (e.g. points, bearings, radius of the earth), do not have the same length (for vectors) or number of rows (for matrices) the shorter arguments are re-cycled.
 
@@ -300,7 +300,7 @@ points(b, col='red', pch='x')
 
 \section{Daylength}
 
-You can compute daylenght according to the formula by (Forsythe et al, 1995). For any day of the year (an integer between 1 and 365; or a 'Date' object.
+You can compute daylenght according to the formula by Forsythe et al. (1995). For any day of the year (an integer between 1 and 365; or a 'Date' object.
 
 <<fig=TRUE , echo=TRUE>>=
 as.Date(80, origin='2009-12-31')

@@ -22,6 +22,6 @@ distVincentySphere <- function(p1, p2, r=6378137) {
 	y <- sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon1-lon2)
 	
 	dist <- p[,5] * atan2(x, y)
-	return ( dist )
+	return ( as.vector(dist ))
 }
 
