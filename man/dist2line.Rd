@@ -29,6 +29,11 @@ Distance and lon/lat of the nearest point on the line. Distance is in the same u
 George Wang and Robert Hijmans
 }
 
+\seealso{
+\code{\link{dist2gc}, \link{alongTrackDistance}  }
+}
+
+
 
 \examples{
 line <- rbind(c(-180,-20), c(-150,-10), c(-140,55), c(10, 0), c(-140,-60))
