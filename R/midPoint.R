@@ -39,6 +39,7 @@ midPoint <- function(p1, p2) {
 	lon[is.nan(lon)] <- NA
 	lat[is.nan(lat)] <- NA
 	
+	lon <- (lon+pi)%%(2*pi) - pi
 	res <- cbind(lon, lat) / toRad
 	
 	return(res)

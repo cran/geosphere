@@ -1,4 +1,4 @@
-\name{crossTrackDistfance}
+\name{dist2gc}
 \Rdversion{1.1}
 
 \alias{dist2gc}
@@ -36,7 +36,7 @@ Ed Williams and Robert Hijmans
 
 
 \seealso{
-\code{ \link[geosphere]{alongTrackDistance}  }
+\code{\link{dist2Line}, \link{alongTrackDistance}  }
 }
 
 \references{

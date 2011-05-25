@@ -1,3 +1,6 @@
+-- 18 May 2011, version 1.2-21
+Normalizing longitude to -180..180 in midPoint. Suggested by Aaron Hardin
+
 -- 13 Jan 2011, version 1.2-18
 New argument sepNA in gcIntermediate, suggested by Lee Butterman
 
