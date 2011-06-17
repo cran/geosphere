@@ -62,7 +62,7 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 				cosSqAlpha <- 1 - sinAlpha*sinAlpha
 				cos2SigmaM <- cosSigma - 2*sinU1*sinU2/cosSqAlpha
 				
-				if (is.nan(cos2SigmaM)) cos2SigmaM <- 0  #// equatorial line: cosSqAlpha=0 (§6)
+				if (is.nan(cos2SigmaM)) cos2SigmaM <- 0  # equatorial line: cosSqAlpha=0 (§6)
 				
 				C <- f/16*cosSqAlpha*(4+f*(4-3*cosSqAlpha))
 				lambdaP <- lambda
@@ -71,7 +71,7 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 				continue <- (abs(lambda-lambdaP) > 1e-12 && iterLimit > 0)
 			} 
 			if (iterLimit==0) {
-				res[i]  <- NA  #// formula failed to converge
+				res[i]  <- NA  # failed to converge
 			} else {
 				uSq <- cosSqAlpha * (a*a - b*b) / (b*b)
 				A <- 1 + uSq/16384*(4096+uSq*(-768+uSq*(320-175*uSq)))

@@ -4,11 +4,11 @@
 # license GPL3
 
 .normalizeLonDeg <- function(x) {
-	x <- (x + 180) %% 360 - 180
+	(x + 180) %% 360 - 180
 }
 
 .normalizeLonRad <- function(x) {
-	x <- (x + pi) %% (2*pi) - pi 
+	(x + pi) %% (2*pi) - pi 
 }
 
 

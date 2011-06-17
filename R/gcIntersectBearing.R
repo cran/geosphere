@@ -39,7 +39,7 @@ gcIntersectBearing <- function(p1, brng1, p2, brng2) {
 	brngB <- acos( ( sin(lat1) - sin(lat2)*cos(dist12) ) / ( sin(dist12)*cos(lat2) ) )
 
     g <- (sin(lon2-lon1) > 0)
-	brng12 <- vector(length=g)
+	brng12 <- vector(length=length(g))
 	brng21 <- brng12
 	
 	brng12[g] <- brngA[g]
