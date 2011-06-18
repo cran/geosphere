@@ -17,13 +17,14 @@ Antipodal points are connected by an infinite number of great circles (e.g. the 
 
 \usage{
 antipode(p)
-antipodal(p1, p2)
+antipodal(p1, p2, tol=1e-9)
 }
 
 \arguments{
   \item{p}{Longitude/latitude of a single point, in degrees; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
   \item{p1}{as above}
   \item{p2}{as above}
+  \item{tol}{tolerance for equality}
 }
 
 \value{

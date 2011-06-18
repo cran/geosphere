@@ -3,11 +3,10 @@
 # version 0.1
 # license GPL
 
-gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FALSE, sp=FALSE, sepNA=FALSE ) {
-# Intermediate points on a great circle
-# source: http://williams.best.vwh.net/avform.htm
 
-	interm <- function(p1, p2, n) {
+.interm <- function(p1, p2, n) {
+		toRad <- pi / 180 
+
 		if (antipodal(p1, p2)) {
 			return(rep(Inf, nrow(p1)))
 		}
@@ -33,24 +32,35 @@ gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FAL
 		lat <- atan2(z,sqrt(x^2+y^2))
 		lon <- atan2(y,x)
 	
-		gc <- cbind(lon,lat)/toRad
-		return(gc)
-	}
+		cbind(lon,lat)/toRad
+}
 
-	toRad <- pi / 180 
+
+
+gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FALSE, sp=FALSE, sepNA=FALSE) {
+# Intermediate points on a great circle
+# source: http://williams.best.vwh.net/avform.htm
+
+#	internal=FALSE 
+
 	p1 <- .pointsToMatrix(p1)
 	p2 <- .pointsToMatrix(p2)
 	p <- cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(n))
-	p1 <- p[,1:2, drop=FALSE]
-	p2 <- p[,3:4, drop=FALSE]
-	n <- pmax(n, p[,5])
 	res <- list()
 
-	for (i in 1:nrow(p1)) {
-		x <- interm(p1[i,,drop=FALSE], p2[i,,drop=FALSE], n[i])
+	for (i in 1:nrow(p)) {
+		#if (internal) {
+		x <- .interm(p[i,1:2,drop=FALSE], p[i,3:4,drop=FALSE], p[i,5])
 		if (addStartEnd) {
-			x <- rbind(p1[i,,drop=FALSE], x, p2[i,,drop=FALSE])
-		}
+			x <- rbind(p[i,1:2,drop=FALSE], x, p[i,3:4,drop=FALSE])
+		}			
+		#} else {
+		#	n <- as.integer(p[i,5])
+		#	n2 <- n + 2*addStartEnd
+		#	x <- unlist(.C('interm', n, as.double(p[i,1]), as.double(p[i,2]), as.double(p[i,3]), as.double(p[,4]), 
+		#	as.integer(addStartEnd), vector('double', n2), vector('double', n2), PACKAGE='geosphere')[7:8])
+		#	x <- matrix(x, ncol=2)
+		#}
 		if (breakAtDateLine) {
 	
 			r <- range(x[,1]) 

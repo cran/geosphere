@@ -22,8 +22,8 @@ distHaversine <- function(p1, p2, r=6378137) {
 
 	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))
 		
-	dLat <- (p[,4]-p[,2])
-	dLon <- (p[,3]-p[,1])
+	dLat <- p[,4]-p[,2]
+	dLon <- p[,3]-p[,1]
 	a <- sin(dLat/2) * sin(dLat/2) + cos(p[,2]) * cos(p[,4]) * sin(dLon/2) * sin(dLon/2)
 	dist <- 2 * atan2(sqrt(a), sqrt(1-a)) * p[,5]
 	return( as.vector(dist))
