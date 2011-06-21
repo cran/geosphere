@@ -104,8 +104,10 @@ gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FAL
 		
 		res <- SpatialLines(res, CRS("+proj=longlat +ellps=WGS84"))
 		
-	} else if (nrow(p1) == 1 ) {
+	} else if (nrow(p) == 1 ) {
+	
 		res <- res[[1]]
+		
 	} else if (sepNA) {
 		r <- res[[1]]
 		for (i in 2:length(res)) { 
