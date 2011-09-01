@@ -1,3 +1,6 @@
+-- 28 August 2011, version 1.2-25
+Correction to gcIntermediate. Points were not exactely equidistant. Error spotted by Jason Davies.
+
 -- 18 May 2011, version 1.2-21
 Normalizing longitude to -180..180 in midPoint. Suggested by Aaron Hardin
 

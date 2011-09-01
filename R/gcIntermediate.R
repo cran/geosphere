@@ -24,7 +24,7 @@
 		n <- max(round(n), 1)
 		f <- 1:n / (n+1)
 	
-		A <- sin(1-f)*d / sin(d)
+		A <- sin((1-f)*d) / sin(d)
 		B <- sin(f*d) / sin(d)
 		x <- A*cos(lat1)*cos(lon1) +  B*cos(lat2)*cos(lon2)
 		y <- A*cos(lat1)*sin(lon1) +  B*cos(lat2)*sin(lon2)
