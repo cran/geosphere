@@ -1,8 +1,8 @@
 Package: geosphere
 Type: Package
 Title: Spherical Trigonometry
-Version: 1.2-25
-Date: 28-August-2011
+Version: 1.2-26
+Date: 19-September-2011
 Depends: methods, R (>= 2.10.0)
 Suggests: sp, raster
 Author: Robert J. Hijmans, Ed Williams, Chris Vennes
@@ -12,6 +12,6 @@ License: GPL
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: geosphere
-Repository/R-Forge/Revision: 156
-Date/Publication: 2011-09-01 06:25:15
-Packaged: 2011-08-28 20:59:20 UTC; rforge
+Repository/R-Forge/Revision: 158
+Date/Publication: 2011-09-21 13:18:08
+Packaged: 2011-09-20 21:02:40 UTC; rforge

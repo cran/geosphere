@@ -58,24 +58,24 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 			# or rather transform them ....?
 		}
 	
-	
-		x = p@polygons
-		n = length(x)
+		x <- p@polygons
+		n <- length(x)
 		polys = list()
 		for (i in 1:n) {
-			parts = length(x[[i]]@Polygons )
-			partlist = list()
+			parts <- length(x[[i]]@Polygons )
+			partlist <- list()
 			for (j in 1:parts) {
-				crd = x[[i]]@Polygons[[j]]@coords
-				crd = .makeSinglePoly(crd, interval=interval, r=r)
-				partlist[[j]] = Polygon(crd)
+				crd <- x[[i]]@Polygons[[j]]@coords
+				crd <- .makeSinglePoly(crd, interval=interval, r=r)
+				partlist[[j]] <- Polygon(crd)
 			}
-			polys[[i]] = Polygons(partlist, i)
+			polys[[i]] <- Polygons(partlist, i)
 		}
 		polys <- SpatialPolygons(polys)
 		if (inherits(p, 'SpatialPolygonsDataFrame')) {
 			polys <- SpatialPolygonsDataFrame(polys, p@data)	
 		}
+		polys@proj4string <- p@proj4string
 		return(polys)
 	} else {
 		p <- .pointsToMatrix(p)
@@ -91,6 +91,7 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 				stop("you need to install the 'sp' package to have the result returned as an sp object (or use sp=FALSE)")
 			}
 			res <- SpatialPolygons(list(Polygons(list(Polygon(res)), 1)))
+			res@proj4string <- CRS("+proj=longlat +datum=WGS84")
 		}
 		return(res)
 	}
@@ -128,6 +129,7 @@ makeLine <- function(p, interval=10000, r=6378137, sp=FALSE) {
 		if (inherits(p, 'SpatialLinesDataFrame')) {
 			lines <- SpatialLinesDataFrame(lines, p@data)	
 		}
+		lines@proj4string <- p@proj4string
 		return(lines)
 	} else {
 		p <- .pointsToMatrix(p)
@@ -140,6 +142,7 @@ makeLine <- function(p, interval=10000, r=6378137, sp=FALSE) {
 				stop("you need to install the 'sp' package to have the result returned as an sp object (or use sp=FALSE)")
 			}
 			res <- SpatialLines(list(Lines(list(Line(res)), 1)))
+			res@proj4string <- CRS("+proj=longlat +datum=WGS84")
 		}
 		return(res)
 	}
