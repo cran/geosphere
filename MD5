@@ -1,5 +1,5 @@
 19c79e2362781cf2e9130d5674049730 *ChangeLog
-8d3558c56b523dac6fd099c8d0db0476 *DESCRIPTION
+36f016485f51fe4925294980b7cb1700 *DESCRIPTION
 787a3926ee8dc9d4a58474fda920e746 *NAMESPACE
 c83e1b585b4a71f3dbe48d8205e9b919 *R/alongTrack.R
 d2c483974656bad36c5c3d9b5f44886f *R/antipodal.R
@@ -30,7 +30,7 @@ dac0a6b02650340993d653cdd9a076d6 *R/gcLon.R
 2818b0933c09267f0c05b1ae07bec869 *R/greatCircleBearing.R
 ee9ff1ae3f6c9825e8e14a09ca1851b9 *R/helper.R
 ea4c7189b67965e4517e648f27e062b2 *R/horizon.R
-2e8b5e1bfad6f29edfd997361ab3b928 *R/makePoly.R
+9d7e5cbfb814a3c86dc4ca6d7527c101 *R/makePoly.R
 323eadc05c03f5d11b51558ec412640d *R/mercator.R
 d6f09703acd116250f47b4549e55013b *R/midPoint.R
 308ef682ca02d0e1be3959fccc95d75d *R/onGreatCircle.R
@@ -39,12 +39,12 @@ c17a022410bf81d266e20a376229515d *R/perimeter.R
 dfd473bb58dc8e8e7d82bc2918c70c02 *R/pointsToMatrix.R
 b722693f526cf5efb8bb863f52d3a1a3 *R/randomCoordinates.R
 a0903ff2b54c613bedcd723a0b3784f7 *R/regularCoordinates.R
-4795f425f66c0587538b82bcfdae64f4 *R/span.R
+d8eef91762b217ea38891a022e2251c6 *R/span.R
 5c4e005b9975d81c6eb81f4befe794ea *R/zzz.R
-0d053c6bcf497276b0d629fe13d3a60e *data/merc.RData
-82ae4c9572a5f7137578943f26fce8bf *data/wrld.RData
+a8ab2727a4acfb24ace3adf9a784c8e2 *data/merc.RData
+96f3f8217e435636f707dffb6dfee3be *data/wrld.RData
 57d17f01901b230103fc8ebeaf7dabd7 *inst/doc/geosphere.Rnw
-0d273c07eef08125aa28a2a278f52a25 *inst/doc/geosphere.pdf
+458f141188241d652c7b29babb465740 *inst/doc/geosphere.pdf
 4fa50fc5ca825e297513fd184b00fbb2 *man/alongTrackDistance.Rd
 7ac006462708758f21b000d2598ca7bf *man/antipode.Rd
 9b712795a1747c2c803ad6fe65c11420 *man/area.Rd

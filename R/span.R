@@ -80,7 +80,7 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 		xd <- distHaversine(cbind(0,latitude), cbind(xres(rs),latitude), r=r)
 		yd <- distHaversine(cbind(0,0),   cbind(0,yres(rs)), r=r)
 		
-		rs <- polygonsToRaster(pp, rs, silent=TRUE)
+		rs <- rasterize(pp, rs, silent=TRUE)
 		rs <- getValues(rs, format='matrix')
 		latspan[[i]] <- as.vector(apply(rs, 1, sum, na.rm=TRUE) * yd)
 		lonspan[[i]] <- as.vector(apply(rs, 2, sum, na.rm=TRUE) * xd)
