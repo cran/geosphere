@@ -73,6 +73,7 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 		}
 		polys <- SpatialPolygons(polys)
 		if (inherits(p, 'SpatialPolygonsDataFrame')) {
+			rownames(p@data) <- 1:nrow(p@data)
 			polys <- SpatialPolygonsDataFrame(polys, p@data)	
 		}
 		polys@proj4string <- p@proj4string

@@ -1,8 +1,8 @@
-19c79e2362781cf2e9130d5674049730 *ChangeLog
-36f016485f51fe4925294980b7cb1700 *DESCRIPTION
-787a3926ee8dc9d4a58474fda920e746 *NAMESPACE
+039d08aa7b43feb810e316e66bbbd4f4 *ChangeLog
+710895cd58090fbb6c29cad899c6a65f *DESCRIPTION
+c3d40674c84a3f14edcdd8625c15310e *NAMESPACE
 c83e1b585b4a71f3dbe48d8205e9b919 *R/alongTrack.R
-d2c483974656bad36c5c3d9b5f44886f *R/antipodal.R
+adb1476aa2cc864cc29b15bd3e0d7d91 *R/antipodal.R
 cc773f60831bcbb0d1bb374efa8f038c *R/areaPolygon.R
 56570b8bd42f0126f86cb1e448d8f8b4 *R/bearing.R
 4037d9af4735afa83fcb06218f4c6eff *R/bearingRhumb.R
@@ -14,7 +14,7 @@ b31189c287618214456b18de174950c3 *R/destPointRhumb.R
 f4c020c0646d6b88e658f6077d6cfae0 *R/dist2gc.R
 439db4a66c71dc7ee2206eb854b317bf *R/distCosines.R
 b20d32958427a8d804099e5049c8ab5a *R/distHaversine.R
-b2282d347812e7ac5dd19b5a3e1696b7 *R/distMeeus.R
+d4038a5bc329cd2a6e3810afdd571c01 *R/distMeeus.R
 c96f7f3ce8a6230d8bb2b7fb79f93cbe *R/distRhumb.R
 cf8a0d2f5766c47266ce584c4fec208a *R/distVincentyEllipsoid.R
 3a9f817efb3bad45500d3944fd494103 *R/distVincentySphere.R
@@ -26,11 +26,12 @@ aaff704d3f65c3d0301185a62d6fe397 *R/gcIntermediate.R
 7498c57677354d7f8776582909c06df3 *R/gcLat.R
 dac0a6b02650340993d653cdd9a076d6 *R/gcLon.R
 93146efad9e5f9973e443173049a203e *R/gcMaxLat.R
+8045a5abb14a4740f985c2b7efaec98d *R/geomean.R
 6b86b72da5dc13ff89d8a84b3f4e004c *R/greatCircle.R
 2818b0933c09267f0c05b1ae07bec869 *R/greatCircleBearing.R
 ee9ff1ae3f6c9825e8e14a09ca1851b9 *R/helper.R
 ea4c7189b67965e4517e648f27e062b2 *R/horizon.R
-9d7e5cbfb814a3c86dc4ca6d7527c101 *R/makePoly.R
+4606ba902411b5b31333fc51a723b4b0 *R/makePoly.R
 323eadc05c03f5d11b51558ec412640d *R/mercator.R
 d6f09703acd116250f47b4549e55013b *R/midPoint.R
 308ef682ca02d0e1be3959fccc95d75d *R/onGreatCircle.R
@@ -41,10 +42,10 @@ b722693f526cf5efb8bb863f52d3a1a3 *R/randomCoordinates.R
 a0903ff2b54c613bedcd723a0b3784f7 *R/regularCoordinates.R
 d8eef91762b217ea38891a022e2251c6 *R/span.R
 5c4e005b9975d81c6eb81f4befe794ea *R/zzz.R
-a8ab2727a4acfb24ace3adf9a784c8e2 *data/merc.RData
-96f3f8217e435636f707dffb6dfee3be *data/wrld.RData
+990871f1c55db0d5b160d786c86e6850 *data/merc.RData
+464a29b93751536caa7f2cf583124960 *data/wrld.RData
 57d17f01901b230103fc8ebeaf7dabd7 *inst/doc/geosphere.Rnw
-458f141188241d652c7b29babb465740 *inst/doc/geosphere.pdf
+8bc409d8e9e9b587e7aaa5fbe50f9df3 *inst/doc/geosphere.pdf
 4fa50fc5ca825e297513fd184b00fbb2 *man/alongTrackDistance.Rd
 7ac006462708758f21b000d2598ca7bf *man/antipode.Rd
 9b712795a1747c2c803ad6fe65c11420 *man/area.Rd
@@ -71,6 +72,7 @@ f5f1e34a292b26363ac4d081806fce11 *man/distVincentySphere.Rd
 4cc1bd2d9a3733a04c07559f1e0d49d0 *man/gcLat.Rd
 5cd96379502935e99e51a3effe0f4f1a *man/gcLon.Rd
 f8003b6ace94d680469c2e032dd28d2c *man/gcMaxLat.Rd
+264743472528a54cb9638e0b1d75fb0f *man/geomean.Rd
 cc506dca5cf498c988319326a07e9745 *man/geosphere-package.Rd
 3df261608954d0bf77d1709e1286cffa *man/greatCircle.Rd
 f11f1ad3c3ba305fb7333ce9c7d510a4 *man/greatCircleBearing.Rd

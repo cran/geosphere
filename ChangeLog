@@ -1,3 +1,8 @@
+-- 4 March 2012, version 1.2-27
+Bug fix in antipodal; reported by Bart Kranstauber
+Fixed bug in distMeeus. It returned NaN when the distance between two points was 0. Reportedby Daniel Reidpath
+New function geomean to compute the mean of a set of coordinates (optionally with weights)
+
 -- 28 August 2011, version 1.2-25
 Correction to gcIntermediate. Points were not exactely equidistant. Error spotted by Jason Davies.
 
@@ -12,7 +17,7 @@ Merged functions distm and distm2 into distm
 Function with new distance algorithm "distMeeus"
 
 -- 4 Nov 2010
-Additional options to gcIntermediate and greatCircle to return SpatalLines (that are cut in two when crossing the date line)
+Additional options to gcIntermediate and greatCircle to return SpatialLines (that are cut in two when crossing the date line)
 
 -- 8 Sept 2010
 bug fix in .pointsToMatrix (reported by Joe)
