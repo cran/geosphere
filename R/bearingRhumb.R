@@ -34,9 +34,9 @@ bearingRhumb <- function(p1, p2) {
 	dLon <- (lon2-lon1)
 	dPhi <- log(tan(lat2/2 + pi/4)/tan(lat1/2+pi/4))
 	i <- (abs(dLon) > pi)
-	j <- i && dLon > 0
+	j <- i & dLon > 0
 	dLon[j] <- -(2*pi-dLon[j])
-	j <- i && dLon <= 0
+	j <- i & dLon <= 0
 	dLon[j] <- dLon[j] <- (2*pi+dLon[j])
 	
 	b <- atan2(dLon, dPhi)

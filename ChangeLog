@@ -1,3 +1,5 @@
+Fixed bug in bearingRhumb when using multiple points (incorrect results were returned). Reported by Bart Kranstauber
+
 -- 4 March 2012, version 1.2-27
 Bug fix in antipodal; reported by Bart Kranstauber
 Fixed bug in distMeeus. It returned NaN when the distance between two points was 0. Reportedby Daniel Reidpath
