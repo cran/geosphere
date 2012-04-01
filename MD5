@@ -1,11 +1,11 @@
-039d08aa7b43feb810e316e66bbbd4f4 *ChangeLog
-710895cd58090fbb6c29cad899c6a65f *DESCRIPTION
+e774bc26a6f7b36fb17c7c1d2198294e *ChangeLog
+be88d3a02cd509f9ca6fa2f9c82ee370 *DESCRIPTION
 c3d40674c84a3f14edcdd8625c15310e *NAMESPACE
 c83e1b585b4a71f3dbe48d8205e9b919 *R/alongTrack.R
 adb1476aa2cc864cc29b15bd3e0d7d91 *R/antipodal.R
 cc773f60831bcbb0d1bb374efa8f038c *R/areaPolygon.R
 56570b8bd42f0126f86cb1e448d8f8b4 *R/bearing.R
-4037d9af4735afa83fcb06218f4c6eff *R/bearingRhumb.R
+db504fffce57ab6b600fa96751c8790f *R/bearingRhumb.R
 53150de82f04c48a3864649524c6bda5 *R/centroid.R
 721bcf7bb5c0467ead966bcc54f19c9f *R/daylength.R
 ecb33dd238407fc28c3ac53a911a54cd *R/destPoint.R
@@ -45,7 +45,7 @@ d8eef91762b217ea38891a022e2251c6 *R/span.R
 990871f1c55db0d5b160d786c86e6850 *data/merc.RData
 464a29b93751536caa7f2cf583124960 *data/wrld.RData
 57d17f01901b230103fc8ebeaf7dabd7 *inst/doc/geosphere.Rnw
-8bc409d8e9e9b587e7aaa5fbe50f9df3 *inst/doc/geosphere.pdf
+f85ace3a819d009b1a3d8cb29cc86386 *inst/doc/geosphere.pdf
 4fa50fc5ca825e297513fd184b00fbb2 *man/alongTrackDistance.Rd
 7ac006462708758f21b000d2598ca7bf *man/antipode.Rd
 9b712795a1747c2c803ad6fe65c11420 *man/area.Rd
