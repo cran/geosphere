@@ -6,20 +6,22 @@
 
 geomean <- function(xy, w=NULL) {
 
-	if (inherits(xy, 'SpatialPolygons') | inherits(x, 'SpatialPoints')) {
-		stopifnot(isLonLat(x)) 
-		xy <- coordinates(xy)
-	} 
+	xy <- .pointsToMatrix(xy)
 
-	xy <- na.omit(xy) 
-	xy[,1] <- xy[,1] + 180
-	xy <- xy * pi / 180 
 	if (is.null(w)) {
 		w <- 1
 	} else if (length(w) != nrow(xy)) {
-			stop('length of weights not correct. It should be: ', nrow(xy))
+		stop('length of weights not correct. It should be: ', nrow(xy))
 	}
 	w <- w / sum(w)
+	
+	xyw <- cbind(xy, w)
+	xy <- na.omit(xyw)
+	xy <- xyw[,1:2]
+	w <- xyw[,3]
+	
+	xy[,1] <- xy[,1] + 180
+	xy <- xy * pi / 180 
 		
 	Sx <- mean(sin(xy[,1]) * w)
 	Cx <- mean(cos(xy[,1]) * w)

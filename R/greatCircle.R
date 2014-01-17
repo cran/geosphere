@@ -5,11 +5,6 @@
 
 
 greatCircle <- function(p1, p2, n=360, sp=FALSE) {
-	if (sp) {
-		if (! require(sp)) {
-			stop('you need to install the "sp" package first')
-		}
-	}
 
 	p1 <- .pointsToMatrix(p1)
 	p2 <- .pointsToMatrix(p2)

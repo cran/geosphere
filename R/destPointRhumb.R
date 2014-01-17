@@ -35,8 +35,8 @@ destPointRhumb <- function(p, b, d, r=6378137) {
 	
 	i <- abs(dLat) > 1e-10 
 	q <- vector(length=length(i))
-	q[i] <- dLat/dPhi 
-	q[!i] <- cos(lat1)
+	q[i] <- dLat[i]/dPhi[i] 
+	q[!i] <- cos(lat1[!i])
 
 	dLon <- d * sin(b) / q
 	

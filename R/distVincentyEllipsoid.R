@@ -16,7 +16,6 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 # source http://www.movable-type.co.uk/scripts/latlong-vincenty.html
 # (c) 2002-2009 Chris Veness
 
-
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
 	p2 <- .pointsToMatrix(p2) * toRad
@@ -25,13 +24,13 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 	p1 = p[,1:2,drop=FALSE] 
 	p2 = p[,3:4,drop=FALSE] 
 	  
-	res <- vector(length=dim(p1)[1])
+	res <- vector(length=nrow(p1))
     for (i in 1:dim(p1)[1]) {
 
-		if (isTRUE(all.equal(p1[i,], p2[i,]))) {
-			res[i] <- 0
-		} else if ( any( is.na( c(p1[i,], p2[i,])))) {  #improvement by George Wang
+		if ( any( is.na( c(p1[i,], p2[i,])))) {  #improvement by George Wang and Sebastian P. Luque
 			res[i] <- NA
+		} else if (isTRUE(all.equal(p1[i,], p2[i,]))) {
+			res[i] <- 0
 		} else {
 			lon1 <- p1[i,1]
 			lat1 <- p1[i,2]

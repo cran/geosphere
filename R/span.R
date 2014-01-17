@@ -13,7 +13,6 @@ if (!isGeneric("span")) {
 
 setMethod("span", signature(x='matrix'), 
 function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
-	if (!require(sp)) {stop('you need to install the "sp" package to use this function')}
 
 	dif1 <- max(x[,1]) - min(x[,1])
 	rotated <- FALSE
@@ -45,7 +44,6 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 setMethod("span", signature(x='SpatialPolygons'), 
 function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 
-	if (!require(sp)) {stop('you need to install the "sp" package to use this function')}
 	if (!require(raster)) {stop('you need to install the "raster" package to use this function')}
 	
 	if (! nbands %in% c('fixed', 'variable')) {

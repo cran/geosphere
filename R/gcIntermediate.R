@@ -93,7 +93,6 @@ gcIntermediate <- function( p1, p2, n=50, breakAtDateLine=FALSE, addStartEnd=FAL
 	}
 	
 	if (sp) {
-		require(sp)
 		for (i in 1:length(res)) {
 			if (! is.list(res[[i]])) {
 				res[[i]] <- Lines( list( Line (res[[i]])), ID=as.character(i)) 	

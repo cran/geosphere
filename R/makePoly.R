@@ -88,9 +88,6 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 		}
 		res <- .makeSinglePoly(p, interval=interval, r=r) 
 		if (sp) {
-			if (! require(sp) ) {
-				stop("you need to install the 'sp' package to have the result returned as an sp object (or use sp=FALSE)")
-			}
 			res <- SpatialPolygons(list(Polygons(list(Polygon(res)), 1)))
 			res@proj4string <- CRS("+proj=longlat +datum=WGS84")
 		}
@@ -139,9 +136,6 @@ makeLine <- function(p, interval=10000, r=6378137, sp=FALSE) {
 		}
 		res <- .makeSingleLine(p, interval=interval, r=r) 
 		if (sp) {
-			if (! require(sp) ) {
-				stop("you need to install the 'sp' package to have the result returned as an sp object (or use sp=FALSE)")
-			}
 			res <- SpatialLines(list(Lines(list(Line(res)), 1)))
 			res@proj4string <- CRS("+proj=longlat +datum=WGS84")
 		}
