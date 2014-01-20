@@ -1,7 +1,6 @@
 # based on code by Ed Williams
 # Licence: GPL
 # http://williams.best.vwh.net/avform.htm#XTE
-
 # Port to R by Robert Hijmans
 # October 2009
 # version 0.1
@@ -23,7 +22,6 @@ dist2gc <- function(p1, p2, p3, r=6378137) {
 	tcp <- bearing(p1, p3) * toRad
     dp <- distCosine(p1, p3, r=1)
 	xtr <- asin(sin(tcp-tc) * sin(dp)) * r
-
-	return(xtr)
+	as.vector(xtr)
 }
 

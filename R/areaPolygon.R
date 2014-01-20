@@ -60,7 +60,8 @@ function(x, r=6378137, ...) {
 	haversine <- function(y) { (1-cos(y))/2 }
 
 	x <- .pointsToMatrix(x, poly=TRUE) 
-
+	x <- makePoly(x) # for some corner cases
+	
 	# rotate?
 	dif1 <- max(x[,1]) - min(x[,1])
 	if (dif1 > 180) {
