@@ -27,10 +27,10 @@ distMeeus <- function(p1, p2, a=6378137, f=1/298.257223563) {
 	D <- 2 * w * a
 	H1 <- (3*R - 1)/(2*C)
 	H2 <- (3*R + 1)/(2*S)
-	dist <- D*( 1 + f*H1*sinF2*cosG2 - f*H2*cosF2*sinG2 )
+	dst <- D*( 1 + f*H1*sinF2*cosG2 - f*H2*cosF2*sinG2 )
 	# remove NaN for when p1[i,]==p2[i,]
-	dist[isTRUE(w==0)] <- 0
+	dst[which(w==0)] <- 0
 
-	return ( as.vector(dist ))
+	return ( as.vector(dst) )
 }
 

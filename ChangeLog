@@ -4,6 +4,7 @@ Fixed bug in destPointRhumb. Reported by Bart Kranstauber
 Fixed bug in bearingRhumb when using multiple points (incorrect results were returned). Reported by Bart Kranstauber
 Added 'ID' output to dist2Line
 distVincentyEllipsoid returned a distance of 0 between NA and NA; now it returns NA as intended (reported by Sebastian Luque)
+Fixed minor bug in distMeeus (using 'isTRUE' where 'which' is appropriate) (reported by Tyler Smith)
 
 -- 4 March 2012, version 1.2-27
 Bug fix in antipodal; reported by Bart Kranstauber

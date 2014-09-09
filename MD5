@@ -1,6 +1,6 @@
-b45eac2a36283694d3a49ab31c3d939c *ChangeLog
-cd1a11425e044dd0986d553aabd2659a *DESCRIPTION
-c3d40674c84a3f14edcdd8625c15310e *NAMESPACE
+bcb45561df86fdbcb2b3c6db5186e4ad *ChangeLog
+3ad42bb8b4ae519ae15371ee465cb0c2 *DESCRIPTION
+f099d5e23db56e5c53659eb3e5c55c07 *NAMESPACE
 c83e1b585b4a71f3dbe48d8205e9b919 *R/alongTrack.R
 adb1476aa2cc864cc29b15bd3e0d7d91 *R/antipodal.R
 84cd165cbba597e93a4c3a3240800b01 *R/areaPolygon.R
@@ -14,7 +14,7 @@ bb490b725bdebf2ec630f679f07a342d *R/destPointRhumb.R
 b72d1f78b0ab66a938a8da2690ebb74a *R/dist2gc.R
 03b2a9c208699178055949725ac18e5b *R/distCosines.R
 b20d32958427a8d804099e5049c8ab5a *R/distHaversine.R
-d4038a5bc329cd2a6e3810afdd571c01 *R/distMeeus.R
+fb8638a603bfbb346ff6b561e4eb7574 *R/distMeeus.R
 c96f7f3ce8a6230d8bb2b7fb79f93cbe *R/distRhumb.R
 235404cd78a6316c36fda3ccef14e542 *R/distVincentyEllipsoid.R
 3a9f817efb3bad45500d3944fd494103 *R/distVincentySphere.R
@@ -27,7 +27,7 @@ c5b628b19b6077b2732f0730e2c5b164 *R/distm.R
 dac0a6b02650340993d653cdd9a076d6 *R/gcLon.R
 93146efad9e5f9973e443173049a203e *R/gcMaxLat.R
 4ab691a49c4b57d4a202d1e059d41073 *R/geomean.R
-7d502b89766a3c971ac197cace9ffea6 *R/geomedian.R
+a8126972452a66f0415c635a8e28734b *R/geomedian.R
 e83d7662049f48f412d7f54a5766c3c8 *R/greatCircle.R
 2818b0933c09267f0c05b1ae07bec869 *R/greatCircleBearing.R
 ee9ff1ae3f6c9825e8e14a09ca1851b9 *R/helper.R
@@ -42,12 +42,12 @@ dfd473bb58dc8e8e7d82bc2918c70c02 *R/pointsToMatrix.R
 b722693f526cf5efb8bb863f52d3a1a3 *R/randomCoordinates.R
 a0903ff2b54c613bedcd723a0b3784f7 *R/regularCoordinates.R
 fd0b4e47774c03ffecfcf9d9bda9f594 *R/span.R
-59e415a05c9ebe6e9d9d3e7a015a0534 *build/vignette.rds
+b762f9b0c40bbdc364baae322b9eccd7 *build/vignette.rds
 990871f1c55db0d5b160d786c86e6850 *data/merc.RData
 464a29b93751536caa7f2cf583124960 *data/wrld.RData
-0a429f50034a17d1c8b2964b885c6da7 *inst/doc/geosphere.R
+8320c9bb107f7f3b3620fe6ac9dcce70 *inst/doc/geosphere.R
 8ea543fed07fc2a003d725ac5ab32052 *inst/doc/geosphere.Rnw
-0e77b9ed26949ca1addef5d19f6fc236 *inst/doc/geosphere.pdf
+9a31cbd18f9a576b394b3be4b035d3eb *inst/doc/geosphere.pdf
 4fa50fc5ca825e297513fd184b00fbb2 *man/alongTrackDistance.Rd
 7ac006462708758f21b000d2598ca7bf *man/antipode.Rd
 9b712795a1747c2c803ad6fe65c11420 *man/area.Rd
