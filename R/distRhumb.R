@@ -33,7 +33,7 @@ distRhumb <- function(p1, p2, r=6378137) {
 	q[i] <- dLat[i]/dPhi[i]
 	q[!i]  <- cos(lat1[!i]) 
 	
-  #// if dLon over 180° take shorter rhumb across 180° meridian:
+  #// if dLon over 180 degrees take shorter rhumb across 180 degrees meridian:
 	dLon[dLon > pi] <- 2*pi - dLon[dLon > pi]  
 
 	d <- sqrt(dLat*dLat + q*q*dLon*dLon) 

@@ -44,7 +44,7 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 setMethod("span", signature(x='SpatialPolygons'), 
 function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 
-	if (!require(raster)) {stop('you need to install the "raster" package to use this function')}
+	if (!requireNamespace('raster')) {stop('you need to install the "raster" package to use this function')}
 	
 	if (! nbands %in% c('fixed', 'variable')) {
 		stop('bandwidth should be "fixed" or "variable"')
@@ -66,20 +66,20 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 	
 	for (i in 1:npol) {
 		pp <- x[i,]
-		rs <- raster(pp)
+		rs <- raster::raster(pp)
 		if (nbands == 'fixed') {
 			dim(rs) <- c(n, n)
 		} else {
-			res(rs) <- res
+			raster::res(rs) <- res
 		}
 				
-		latitude <- yFromRow(rs, 1:nrow(rs))
-		longitude <- xFromCol(rs, 1:ncol(rs))
-		xd <- distHaversine(cbind(0,latitude), cbind(xres(rs),latitude), r=r)
-		yd <- distHaversine(cbind(0,0),   cbind(0,yres(rs)), r=r)
+		latitude <- raster::yFromRow(rs, 1:nrow(rs))
+		longitude <- raster::xFromCol(rs, 1:ncol(rs))
+		xd <- distHaversine(cbind(0,latitude), cbind(raster::xres(rs),latitude), r=r)
+		yd <- distHaversine(cbind(0,0),   cbind(0,raster::yres(rs)), r=r)
 		
-		rs <- rasterize(pp, rs, silent=TRUE)
-		rs <- getValues(rs, format='matrix')
+		rs <- raster::rasterize(pp, rs, silent=TRUE)
+		rs <- raster::getValues(rs, format='matrix')
 		latspan[[i]] <- as.vector(apply(rs, 1, sum, na.rm=TRUE) * yd)
 		lonspan[[i]] <- as.vector(apply(rs, 2, sum, na.rm=TRUE) * xd)
 		lat[[i]] <- latitude

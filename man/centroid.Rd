@@ -28,10 +28,6 @@ For multi-part polygons, the centroid of the largest part is returned.
 A matrix (longitude/latitude)
 }
 
-\references{
-For the computation of a centroid in a plane: \url{http://local.wasp.uwa.edu.au/~pbourke/geometry/polyarea/}
-}
-
 \seealso{
 \code{ \link[geosphere]{area}, \link[geosphere]{perimeter}  }
 }

@@ -63,7 +63,7 @@ gcIntersectBearing <- function(p1, brng1, p2, brng2) {
 	lat3[i] <- asin( sin(lat1[i])*cos(dist13[i]) +  cos(lat1[i]) * sin(dist13[i]) * cos(brng13[i]) )
 	dLon13 <- atan2( sin(brng13)*sin(dist13)*cos(lat1), cos(dist13)-sin(lat1)*sin(lat3) )
 	lon3[i] <- lon1[i]+dLon13[i]
-	lon3 <- (lon3+pi) %% (2*pi) - pi # // normalise to -180..180º
+	lon3 <- (lon3+pi) %% (2*pi) - pi # // normalise to -180..180 degrees
 
 	int <- cbind(lon3, lat3) / toRad
 	colnames(int) <- c('lon', 'lat')
