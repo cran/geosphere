@@ -7,8 +7,8 @@
 # http://sci.tech-archive.net/Archive/sci.math/2005-09/msg04691.html
 
 randomCoordinates <- function(n) {
-	z <- runif(n) * 2 - 1
-    t <- runif(n) * 2 * pi
+	z <- stats::runif(n) * 2 - 1
+    t <- stats::runif(n) * 2 * pi
     r <- sqrt(1-z^2)
     x <- r * cos(t)
     y <- r * sin(t)

@@ -8,7 +8,7 @@
 }
 
 \description{
-The shortest distance between two points (i.e., the 'great-circle-distance' or 'as the crow flies'), according to the 'Meeus' method. This method uses an ellipsoid, and the results should be very accurate. 
+The shortest distance between two points on an ellipsoid (the 'geodetic'), according to the 'Meeus' method. \code{\link{distGeo}} should be more accurate.
 }
 
 \usage{
@@ -18,9 +18,10 @@ distMeeus(p1, p2, a=6378137, f=1/298.257223563)
 \arguments{
   \item{p1}{longitude/latitude of point(s), in degrees 1; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
   \item{p2}{as above}
-  \item{a}{Equatorial axis of ellipsoid}
-  \item{f}{Inverse flattening of ellipsoid}
+  \item{a}{numeric. Major (equatorial) radius of the ellipsoid. The default value is for WGS84 }
+  \item{f}{numeric. Ellipsoid flattening. The default value is for WGS84 } 
 }
+
 
 \details{
 

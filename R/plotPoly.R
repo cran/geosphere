@@ -10,14 +10,14 @@
 .doArrows <- function(p, line, fraction, length, interval, ...) {
 
 	if (fraction >= 1) {
-		lines(line, ...)
+		graphics::lines(line, ...)
 	} else {
 		dist <- distHaversine(p[-nrow(p),], p[-1,]) * (1 - fraction)
 		bearing <- bearing(p[-nrow(p),], p[-1,])
 		p0 <- destPoint(p[-nrow(p),], bearing, dist)
 		for (i in 1:nrow(p0)) {
 			line = .makeSinglePoly(rbind(p0[i,], p[i+1,]), interval=interval)
-			lines(line)
+			graphics::lines(line)
 		}
 	}
 		
@@ -30,7 +30,7 @@
 	y1 <- p[,2][-1]
 #	delta = sqrt(mean((x1-x0)^2 + (y1-y0)^2, na.rm=TRUE))
 #	delta = delta * (par("pin")[1] / diff(range(x, na.rm=TRUE)))
-	arrows(x0, y0, x1, y1, code=2, length=length, ...)
+	graphics::arrows(x0, y0, x1, y1, code=2, length=length, ...)
 }
 
 
@@ -50,14 +50,14 @@ plotArrows <- function(p, fraction=0.9, length=0.15, first='', add=FALSE, ...) {
 				line = .makeSinglePoly(pp, interval=interval)
 				.doArrows(pp, line, fraction, length, interval=interval, ...)
 			}
-			points(pp[1,1], pp[1,2], pch=first, cex=2)
+			graphics::points(pp[1,1], pp[1,2], pch=first, cex=2)
 		}
 	} else {
 		interval = max(distm(p), na.rm=TRUE) / 1000
 		line = .makeSinglePoly(p, interval=interval)
 		if (! add) { plot(line, asp=asp, type='n') }
 		.doArrows(p, line=line, fraction, length, interval=interval, ...)
-		points(p[1,1], p[1,2], pch=first, cex=2)
+		graphics::points(p[1,1], p[1,2], pch=first, cex=2)
 	}
 }
 

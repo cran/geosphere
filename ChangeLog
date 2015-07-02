@@ -1,3 +1,5 @@
+-- Current version
+Included C-version of GeographicLib by C.F.F. Karney. areaPolygon and perimenter are now using that to compute these on a (WGS84) ellipsoid. New function distGeo (distance on an ellipsoid) also uses this.
 
 -- 17 January 2014, version 1.3-8
 Fixed bug in destPointRhumb. Reported by Bart Kranstauber

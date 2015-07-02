@@ -13,49 +13,67 @@ if (!isGeneric("areaPolygon")) {
 }	
 
 setMethod('areaPolygon', signature(x='data.frame'), 
-	function(x, r=6378137, ...) {
-		areaPolygon(as.matrix(x), r=r, ...)
+	function(x, a=6378137, f=1/298.257223563, ...) {
+		areaPolygon(as.matrix(x), a=a, f=f, ...)
 } )
 
 
 setMethod('areaPolygon', signature(x='SpatialPolygons'), 
-function(x, r=6378137, ...) {
+function(x, a=6378137, f=1/298.257223563, ...) {
 
-	test <- !is.projected(x)
-	if (! isTRUE (test) ) {
+	test <- is.projected(x)
+	if ( isTRUE (test) ) {
 		if (is.na(test)) {
 			warning('Coordinate reference system of SpatialPolygons object is not set. Assuming it is degrees (longitude/latitude)!')  			
 		} else {
-			stop('Points are projected. They should be in degrees (longitude/latitude)')  
+			stop('The coordinate reference system is not longitude/latitude. Use rgeos::gArea instead')  
 		}
 		# or rather transform them ....?
 	}
 
 
-	x = x@polygons
-	n = length(x)
-	res = vector(length=n)
+	x <- x@polygons
+	n <- length(x)
+	res <- vector(length=n)
 	for (i in 1:n) {
-		parts = length(x[[i]]@Polygons )
-		sumarea = 0
+		parts <- length(x[[i]]@Polygons )
+		sumarea <- 0
 		for (j in 1:parts) {
-			crd = x[[i]]@Polygons[[j]]@coords
-			ar = areaPolygon(crd, r=r, ...)
+			crd <- x[[i]]@Polygons[[j]]@coords
+			ar <- areaPolygon(crd, a=a, f=f, ...)
 			if (x[[i]]@Polygons[[j]]@hole) {
-				sumarea = sumarea - ar
+				sumarea <- sumarea - ar
 			} else {
-				sumarea = sumarea + ar
+				sumarea <- sumarea + ar
 			}
 		}
-		res[i] = sumarea
+		res[i] <- sumarea
 	}
 	return(res)
 } )
 
 
-
 setMethod('areaPolygon', signature(x='matrix'), 
-function(x, r=6378137, ...) {
+function(x, a=6378137, f=1/298.257223563, ...) {
+	
+	r <- list(...)$r
+	if (!is.null(r)) {
+		# for backwards compatibility
+		# warning('remove argument "r" to use improved method')
+		return( .old_areaPolygon(x, r=r) )
+	}
+
+	x <- .Call("polygonarea", as.double(x[,1]), as.double(x[,2]), as.double(a), as.double(f), PACKAGE='geosphere')
+	abs(x[3])
+})
+	
+
+	
+	
+.old_areaPolygon <- function(x, r=6378137, ...) {
+
+# Based on code by Jason_Steven (http://forum.worldwindcentral.com/showthread.php?p=69704)
+# Reference: Bevis, M. and G. Cambareri, 1987. Computing the area of a spherical polygon of arbitrary shape. Mathematical Geology 19: 335-346
 
 	haversine <- function(y) { (1-cos(y))/2 }
 
@@ -100,7 +118,4 @@ function(x, r=6378137, ...) {
 	
 	arsum <- abs( sum( excess ) ) * r * r
     return(arsum )
-} )
-
-
-
+} 

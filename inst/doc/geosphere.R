@@ -9,7 +9,7 @@ foo <- packageDescription("geosphere")
 
 
 ###################################################
-### code chunk number 2: geosphere.Rnw:54-67
+### code chunk number 2: geosphere.Rnw:58-71
 ###################################################
 library(geosphere)
 Lon = c(1:9/1000, 1:9/100, 1:9/10, 1:90*2) 
@@ -27,7 +27,7 @@ plot(log(dhav), dhav-dvsp, col='blue',
 
 
 ###################################################
-### code chunk number 3: geosphere.Rnw:72-75
+### code chunk number 3: geosphere.Rnw:76-79
 ###################################################
 dvse = distVincentyEllipsoid(c(0,0), cbind(Lon, Lat))
 plot(dvsp/1000, (dvsp-dvse)/1000, col='blue', xlab='Vincenty Sphere Distance (km)', 
@@ -35,7 +35,7 @@ plot(dvsp/1000, (dvsp-dvse)/1000, col='blue', xlab='Vincenty Sphere Distance (km
 
 
 ###################################################
-### code chunk number 4: geosphere.Rnw:83-96
+### code chunk number 4: geosphere.Rnw:89-102
 ###################################################
 LA <- c(-118.40, 33.95)
 NY <- c(-73.78,  40.63)
@@ -53,7 +53,7 @@ greatCircleBearing(LA, brng=270, n=10)
 
 
 ###################################################
-### code chunk number 5: geosphere.Rnw:103-111
+### code chunk number 5: geosphere.Rnw:109-117
 ###################################################
 destPoint(LA, b=65, d=100000)
 circle=destPoint(c(0,80), b=1:365, d=1000000)
@@ -66,7 +66,7 @@ polygon(circle3, col='white', lwd=4, border='black')
 
 
 ###################################################
-### code chunk number 6: geosphere.Rnw:119-133
+### code chunk number 6: geosphere.Rnw:125-139
 ###################################################
 ml <- gcMaxLat(LA, NY)
 lat0 <- gcLat(LA, NY, lon=0)
@@ -85,7 +85,7 @@ points(anti, pch=20, cex=2, col='dark blue' )
 
 
 ###################################################
-### code chunk number 7: geosphere.Rnw:140-155
+### code chunk number 7: geosphere.Rnw:146-161
 ###################################################
 SF <- c(-122.44, 37.74)
 AM <- c(4.75, 52.31)
@@ -105,7 +105,7 @@ gcIntersectBearing(LA, bearing1, SF, bearing2)
 
 
 ###################################################
-### code chunk number 8: geosphere.Rnw:163-183
+### code chunk number 8: geosphere.Rnw:169-189
 ###################################################
 MS <- c(-93.26, 44.98)
 gc1 <- greatCircleBearing(NY, 281)
@@ -142,7 +142,7 @@ finalBearing(LA, NY)
 
 
 ###################################################
-### code chunk number 10: geosphere.Rnw:207-218
+### code chunk number 10: geosphere.Rnw:213-224
 ###################################################
 atd <- alongTrackDistance(LA, NY, MS)
 p <- destPoint(LA, b, atd)
@@ -158,7 +158,7 @@ distCosine(p, MS)
 
 
 ###################################################
-### code chunk number 11: geosphere.Rnw:226-235
+### code chunk number 11: geosphere.Rnw:232-241
 ###################################################
 line <- rbind(c(-180,-20), c(-150,-10), c(-140,55), c(10, 0), c(-140,-60))
 pnts <- rbind(c(-170,0), c(-75,0), c(-70,-10), c(-80,20), c(-100,-50),
@@ -172,7 +172,7 @@ for (i in 1:nrow(d)) lines(gcIntermediate(pnts[i,], d[i,2:3], 10), lwd=2, col='g
 
 
 ###################################################
-### code chunk number 12: geosphere.Rnw:243-263
+### code chunk number 12: geosphere.Rnw:249-269
 ###################################################
 NP <- c(0, 85)
 bearing(SF, NP)
@@ -197,7 +197,7 @@ lines(mercator(pc), col='red')
 
 
 ###################################################
-### code chunk number 13: geosphere.Rnw:271-285
+### code chunk number 13: geosphere.Rnw:277-291
 ###################################################
 pol <- rbind(c(-120,-20), c(-80,5), c(0, -20), c(-40,-60), c(-120,-20))
 areaPolygon(pol)
@@ -216,7 +216,7 @@ legend(-140, -48, c('planar','spherical'), lty=1, lwd=2,
 
 
 ###################################################
-### code chunk number 14: geosphere.Rnw:293-298
+### code chunk number 14: geosphere.Rnw:299-304
 ###################################################
 plot(wrld, type='l', col='grey')
 a = randomCoordinates(500)
@@ -226,7 +226,7 @@ points(b, col='red', pch='x')
 
 
 ###################################################
-### code chunk number 15: geosphere.Rnw:307-315
+### code chunk number 15: geosphere.Rnw:313-321
 ###################################################
 as.Date(80, origin='2009-12-31')
 as.Date(172, origin='2009-12-31')

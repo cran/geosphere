@@ -29,9 +29,11 @@ foo <- packageDescription("geosphere")
 
 \section{Introduction}
 
-This vignette describes the R package '\verb@geosphere@'. The package implements spherical trigonometry functions for geographic applications. Many of the functions have applications in navigation, but others are more general, or have no relation to naviation at all. 
+This vignette describes the R package '\verb@geosphere@'. The package implements spherical trigonometry functions for geographic applications. Many of the functions have applications in navigation, but others are more general, or have no relation to navigation at all. 
 
-There are a number of functions to compute distance and direction (= bearing, azimuth, course) along great circles (= shortest distance on a sphere, or "as the crow flies") and along rhumb lines (lines of constant bearing). 
+There is a number of functions to compute distance and direction (= bearing, azimuth, course) along great circles (= shortest distance on a sphere, or "as the crow flies") and along rhumb lines (lines of constant bearing). 
+
+There are also functions that compute distances on a spheroid.
 
 Other functions include the computation of the location of an object at a given direction and distance; and the area, perimeter, and centroid of a spherical polygon. 
 
@@ -40,6 +42,8 @@ Geographic locations must be specified in longitude and latitude (and in that or
 The default unit of distance is meter; but this can be adjusted by supplying a different radius 'r' to functions. Directions are expressed in degrees (N = 0 and 360,  E = 90, S = 180, and W = 270 degrees). If arguments of functions that take several arguments (e.g. points, bearings, radius of the earth), do not have the same length (for vectors) or number of rows (for matrices) the shorter arguments are re-cycled.
 
 Many functions in this package are based on formulae provided by Ed Williams (\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}, and partly on javascript implementations of these formulae by Chris Veness (\url{http://www.movable-type.co.uk/scripts/latlong.html} )
+
+Most geodesic computations (for a spheroid rather than a sphere) use the GeographicLib by C.F.F. Karney (\url{http://geographiclib.sourceforge.net/}.
 
 
 
@@ -74,6 +78,8 @@ dvse = distVincentyEllipsoid(c(0,0), cbind(Lon, Lat))
 plot(dvsp/1000, (dvsp-dvse)/1000, col='blue', xlab='Vincenty Sphere Distance (km)', 
         ylab="Difference between 'Vincenty Sphere' and 'Vincenty Ellipsoid' methods (km)")
 @
+
+For the most precise distance computation use the 'distGeo' function.
 
 
 \section{Points on great circles}

@@ -13,7 +13,7 @@
 
 
 .isPolygon <- function(x, fix=FALSE) {
-	x <- na.omit(x)
+	x <- stats::na.omit(x)
 	if (nrow(x) < 4) {
 		stop('this is not a polygon (insufficent number of vertices)')
 	}

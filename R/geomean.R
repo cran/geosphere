@@ -16,7 +16,7 @@ geomean <- function(xy, w=NULL) {
 	w <- w / sum(w)
 	
 	xyw <- cbind(xy, w)
-	xy <- na.omit(xyw)
+	xy <- stats::na.omit(xyw)
 	xy <- xyw[,1:2]
 	w <- xyw[,3]
 	

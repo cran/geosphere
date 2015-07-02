@@ -9,32 +9,36 @@
 
 
 \title{
-Compute the areaPolygon of a polygon
+Area of a longitude/latitude polygon
 }
 
 \description{
-Compute the area of a polygon on a sphere. Polygons should not self-intersect.
+Compute the area of a polygon in longitude/latitude coordiantes on an ellipsoid
 }
 
 \usage{
-areaPolygon(x, ...)
+\S4method{areaPolygon}{matrix}(x, a=6378137, f=1/298.257223563, ...)
+
+\S4method{areaPolygon}{SpatialPolygons}(x, a=6378137, f=1/298.257223563, ...)
 }
 
 \arguments{
- \item{x}{Longitude/latitude of the points forming a polygon; Must be a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPolygons* object}
- \item{...}{Additional arguments. One implemented \code{r=6378137}, the radius of the earth; default = 6378137 m}  
+ \item{x}{longitude/latitude of the points forming a polygon; Must be a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPolygons* object}
+ \item{a}{major (equatorial) radius of the ellipsoid}
+ \item{f}{ellipsoid flattening. The default value is for WGS84 }
+ \item{...}{Additional arguments. None implemented}  
 }
 
 \value{
-area. Unit is the square of the unit of r (default is square meter).
+area in square meters
 }
 
 \author{
-Robert J. Hijmans. Based on code by Jason_Steven (\url{http://forum.worldwindcentral.com/showthread.php?p=69704})
+This function calls GeographicLib code by C.F.F. Karney
 }
 
 \references{
-Bevis, M. and G. Cambareri, 1987. Computing the area of a spherical polygon of arbitrary shape. Mathematical Geology 19: 335-346
+C.F.F. Karney, 2013. Algorithms for geodesics, J. Geodesy 87: 43-55. \url{https://dx.doi.org/10.1007/s00190-012-0578-z}. Addenda: \url{http://geographiclib.sf.net/geod-addenda.html}. Also see \url{http://geographiclib.sourceforge.net/}
 }
 
 

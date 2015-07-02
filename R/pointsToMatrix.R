@@ -47,13 +47,13 @@
 	if (! is.numeric(p) ) { p[] <- as.numeric(p) }
 	
 	if (checkLonLat) {
-		if (length(na.omit(p[,1])) > 0) {
+		if (length(stats::na.omit(p[,1])) > 0) {
 			if (min(p[,1], na.rm=TRUE) < -360) { stop('longitude < -360') }
 			if (max(p[,1], na.rm=TRUE) > 360) {  stop('longitude > 360')  }
 			if (min(p[,1], na.rm=TRUE) < -180) { warning('longitude < -180') }
 			if (max(p[,1], na.rm=TRUE) > 180) {  warning('longitude > 180')  }
 		}
-		if (length(na.omit(p[,2])) > 0) {
+		if (length(stats::na.omit(p[,2])) > 0) {
 			if (min(p[,2], na.rm=TRUE) < -90) {  stop('latitude < -90')  }
 			if (max(p[,2], na.rm=TRUE) > 90) {  stop('latitude > 90')  }
 		}

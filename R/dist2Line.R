@@ -38,7 +38,7 @@ dist2Line <- function(p, line, distfun=distHaversine) {
 	p <- .pointsToMatrix(p)
 	
 	if (inherits(line, 'SpatialPolygons')) {
-		line <- as(line, 'SpatialLines')
+		line <- methods::as(line, 'SpatialLines')
 	}
 	if (inherits(line, 'SpatialLines')) {
 		return( .spDistPoint2Line(p, line, distfun) )

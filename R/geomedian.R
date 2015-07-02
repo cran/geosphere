@@ -17,7 +17,7 @@
 	w <- w / sum(w)
 	
 	xyw <- cbind(xy, w)
-	xy <- na.omit(xyw)
+	xy <- stats::na.omit(xyw)
 	xy <- xyw[,1:2]
 	w <- xyw[,3]
 
@@ -32,7 +32,7 @@
 		}
 	}
 	
-	opt <- optim(geomean(xy), fun)
+	opt <- stats::optim(geomean(xy), fun)
 	if (!is.null(opt$message)) {
 		warning(opt$message)
 	}
@@ -58,7 +58,7 @@
 	w <- w / sum(w)
 	
 	xyw <- cbind(xy, w)
-	xy <- na.omit(xyw)
+	xy <- stats::na.omit(xyw)
 	xy <- xyw[,1:2]
 	w <- xyw[,3]
 

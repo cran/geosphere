@@ -8,35 +8,44 @@
 \alias{perimeter,SpatialLines-method}
   
 
-
 \title{
-Compute the perimeter of a polygon 
+Compute the perimeter of a longitude/latitude polygon
 }
 
 \description{
-Compute the perimeter of a polygon (or the length of a line) on a sphere 
+Compute the perimeter of a polygon (or the length of a line) with longitude/latitude coordinates, on an ellipsoid (WGS84 by default) 
 }
 
 \usage{
-perimeter(x, ...)
+\S4method{perimeter}{matrix}(x, a=6378137, f=1/298.257223563, ...)
+
+\S4method{perimeter}{SpatialPolygons}(x, a=6378137, f=1/298.257223563, ...)
+
+\S4method{perimeter}{SpatialLines}(x, a=6378137, f=1/298.257223563, ...)
 }
 
 \arguments{
- \item{x}{Longitude/latitude of the points forming a polygon; Must be a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPolygons* or SpatialLines* object}
- \item{...}{Additional arguments. One implemented \code{r=6378137}, the radius of the earth; default = 6378137 m}  
+ \item{x}{Longitude/latitude of the points forming a polygon or line; Must be a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPolygons* or SpatialLines* object}
+ \item{a}{major (equatorial) radius of the ellipsoid. The default value is for WGS84 }
+ \item{f}{ellipsoid flattening. The default value is for WGS84 }
+ \item{...}{Additional arguments. None implemented}  
 }
 
 \value{
-Numeric. The perimeter or length. Unit is that of r (default is m).
+Numeric. The perimeter or length in m.
 }
 
 \seealso{
-\code{ \link[geosphere]{area}, \link[geosphere]{centroid}  }
+\code{ \link[geosphere]{areaPolygon}, \link[geosphere]{centroid}  }
 }
 
 
 \author{
-Robert Hijmans 
+This function calls GeographicLib code by C.F.F. Karney
+}
+
+\references{
+C.F.F. Karney, 2013. Algorithms for geodesics, J. Geodesy 87: 43-55. \url{https://dx.doi.org/10.1007/s00190-012-0578-z}. Addenda: \url{http://geographiclib.sf.net/geod-addenda.html}. Also see \url{http://geographiclib.sourceforge.net/}
 }
 
 
