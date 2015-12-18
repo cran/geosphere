@@ -44,7 +44,7 @@ Ed Williams, Chris Veness, Robert Hijmans
 \examples{
 gcMaxLat(c(5,52), c(-120,37))
 
-# this seems to be more accurate:
+# Another way to get there:
 f <- function(lon){gcLat(c(5,52), c(-120,37), lon)}
 optimize(f, interval=c(-180, 180), maximum=TRUE)
 }

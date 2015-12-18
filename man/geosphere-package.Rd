@@ -10,7 +10,7 @@
 \description{
 This package implements spherical trigonometry functions for geographic applications. There are functions to compute distance and direction (bearing, azimuth, course) along Great Circles (= shortest distance on a sphere, or "as the crow flies") and along rhumb lines (lines of constant direction) as well as functions to compute intersections of great circles, and of rhumb lines. There are also functions to compute the distance between points and polylines, and to characterize spherical polygons; for random sampling on a sphere, and to compute daylength. See the vignette \code{vignette('geosphere')} for examples.
 
-Geographic locations must be specified in latitude and longitude in degrees (NOT radians). Degrees are (obviously) in decimal notation. Thus 12 degrees, 30 minutes, 10 seconds = 12 + 10/60 + 30/3600 =  12.175 degrees. The Southern and Western hemispheres have a negative sign.
+Geographic locations must be specified in latitude and longitude in degrees (NOT radians). Degrees are (obviously) in decimal notation. Thus 12 degrees, 30 minutes, 10 seconds = 12 + 30/60 + 10/3600 =  12.50278 degrees. The Southern and Western hemispheres have a negative sign.
 
 The default unit of distance is meter; but this can be adjusted by supplying a different radius \code{r} to functions.
 

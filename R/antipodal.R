@@ -11,7 +11,9 @@ antipodal <- function(p1, p2, tol=1e-9) {
 	p[,c(1,3)] <- .normalizeLonDeg(p[,c(1,3)])
 	diflon <- abs(p[,1] - p[,3]) 
 	diflat <- abs(p[,2] + p[,4])
-	(diflat < tol) & (diflon > (180 - tol))
+	## FIX by Gareth Davies
+#	(diflat < tol) & (diflon > (180 - tol))
+    (diflat < tol) & (abs(diflon%%360 - 180) < tol) 	
 }
 
 

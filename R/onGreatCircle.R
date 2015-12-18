@@ -6,7 +6,7 @@
 # license GPL3
 
 
-onGreatCircle <- function(p1, p2, p3) {
+onGreatCircle <- function(p1, p2, p3, tol=0.0001) {
 # is p3 an intermediate points on a great circle defined by p1 and p2?
 	toRad <- pi / 180 
 
@@ -25,9 +25,9 @@ onGreatCircle <- function(p1, p2, p3) {
 	lon <- p3[,1] 
 	lat <- p3[,2] 
 	
-	newlat = atan((sin(lat1)*cos(lat2)*sin(lon-lon2) - sin(lat2)*cos(lat1)*sin(lon-lon1)) / (cos(lat1)*cos(lat2)*sin(lon1-lon2))) 
+	newlat <- atan((sin(lat1)*cos(lat2)*sin(lon-lon2) - sin(lat2)*cos(lat1)*sin(lon-lon1)) / (cos(lat1)*cos(lat2)*sin(lon1-lon2))) 
 	
-	res <- abs(newlat - lat) < 0.0001
+	res <- abs(newlat - lat) < tol
 
 	meridian <- p1[,1] == p2[,1] & p1[,1]  == p3[,1]
 	res[meridian] <- TRUE

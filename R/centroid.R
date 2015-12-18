@@ -63,7 +63,8 @@ function(x) {
 
 setMethod("centroid", signature(x='SpatialPolygons'), 
 function(x) {
-	if ( isTRUE(is.projected(pols)) ) {
+
+	if ( isTRUE(is.projected(x)) ) {
 		return( coordinates(x)) 
 	}
 
@@ -72,8 +73,8 @@ function(x) {
 	res <- matrix(nrow=n, ncol=2)
 	for (i in 1:n) {
 		parts <- length(x[[i]]@Polygons )
-		parea <- sapply(x[[i]]@Polygons, function(y){slot(y, "area")} )
-		hole <- sapply(x[[i]]@Polygons, function(y){slot(y, "hole")} )
+		parea <- sapply(x[[i]]@Polygons, function(y){ methods::slot(y, "area")} )
+		hole <- sapply(x[[i]]@Polygons, function(y){ methods::slot(y, "hole")} )
 		parea[hole] <- -1
 		j <- which.max(parea)
 		crd <- x[[i]]@Polygons[[j]]@coords

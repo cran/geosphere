@@ -27,8 +27,8 @@ gcLon <- function(p1, p2, lat) {
 		return(res)
 	}
 	
-	p1 = p1[anti, ,drop=FALSE] * toRad
-	p2 = p2[anti, ,drop=FALSE] * toRad
+	p1 <- p1[anti, ,drop=FALSE] * toRad
+	p2 <- p2[anti, ,drop=FALSE] * toRad
 	
 	lon1 <- p1[,1] * -1
 	lat1 <- p1[,2] 
@@ -36,7 +36,7 @@ gcLon <- function(p1, p2, lat) {
 	lat2 <- p2[,2]
 	lat3 <- lat * toRad
 	
-	l12 = lon1-lon2
+	l12 <- lon1-lon2
 	A <- sin(lat1)*cos(lat2)*cos(lat3)*sin(l12)
 	B <- sin(lat1)*cos(lat2)*cos(lat3)*cos(l12) - cos(lat1)*sin(lat2)*cos(lat3)
 	C <-  cos(lat1)*cos(lat2)*sin(lat3)*sin(l12)
@@ -48,9 +48,8 @@ gcLon <- function(p1, p2, lat) {
 	lon3[i,] <- NA
 	i <- !i
 	
-	dlon <- A
-	dlon[] <- NA
-	dlon[i] = acos(C[i]/sqrt(A[i]^2+B[i]^2))
+	dlon <- rep(NA, length(A))
+	dlon[i] <- acos(C[i]/sqrt(A[i]^2+B[i]^2))
 	lon3[i,1] <- .normalizeLonRad(lon1[i]+dlon[i]+lon[i])
 	lon3[i,2] <- .normalizeLonRad(lon1[i]-dlon[i]+lon[i])
 	

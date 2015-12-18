@@ -1,12 +1,12 @@
-efb6b07f0f53451223207263c90ffc63 *ChangeLog
-dac75e1bf6c21c80e80756a5bf3b3b57 *DESCRIPTION
+6ed06113823d9ece33e3936b0dbb274c *ChangeLog
+4f7ca0a1bf430cd6723dbe0677f6aea0 *DESCRIPTION
 bb8b6a84ef392a2633967ce63dfbdf34 *NAMESPACE
 c83e1b585b4a71f3dbe48d8205e9b919 *R/alongTrack.R
-adb1476aa2cc864cc29b15bd3e0d7d91 *R/antipodal.R
+b5c60f5b1be262f127ed7e2380cf4ea2 *R/antipodal.R
 33e10d84be9191f5e8d0a812d84550fd *R/areaPolygon.R
 da46cacd7f7f65aeb9f6e9596cf89c8a *R/bearing.R
 db504fffce57ab6b600fa96751c8790f *R/bearingRhumb.R
-017c5f7eafc684789749984a171c9b25 *R/centroid.R
+ed74115b5f93c5e74937a89144272c3c *R/centroid.R
 721bcf7bb5c0467ead966bcc54f19c9f *R/daylength.R
 e3118b6e3fcd087e2dfa4e86406afea4 *R/destPoint.R
 bb490b725bdebf2ec630f679f07a342d *R/destPointRhumb.R
@@ -25,8 +25,8 @@ c5b628b19b6077b2732f0730e2c5b164 *R/distm.R
 815d6a1e54417aea789263fb80f6a07b *R/gcIntersect.R
 38d1c496512e04b2dc24972ea49eb88b *R/gcIntersectBearing.R
 7498c57677354d7f8776582909c06df3 *R/gcLat.R
-dac0a6b02650340993d653cdd9a076d6 *R/gcLon.R
-01df7df6fdb66f2d7937d7c3c61e2193 *R/gcMaxLat.R
+d482c56afab5ca1891805a586cd2fb7d *R/gcLon.R
+102b0d1f07581ea5a56869cce7f9ac89 *R/gcMaxLat.R
 f43fc578b8ebde40674649ff98efcc05 *R/geodesic.R
 2081dca1de87b02dd38dee2d21857e58 *R/geomean.R
 e05b9ce8c5b6851519e138156fa0527d *R/geomedian.R
@@ -38,7 +38,7 @@ e3de33ec547a38d9ab1a3155a529c1a0 *R/makePoly.R
 323eadc05c03f5d11b51558ec412640d *R/mercator.R
 d6f09703acd116250f47b4549e55013b *R/midPoint.R
 7b842907b382aac14437c580c8d57302 *R/old_destPoint.R
-308ef682ca02d0e1be3959fccc95d75d *R/onGreatCircle.R
+caba5729f0e9429c56c9e6dd6c0d4b3c *R/onGreatCircle.R
 3e451ca5f6fe5e598c99d3d9a1743129 *R/perimeter.R
 f4c03f95f96a78b508a3296ffd12b350 *R/plotPoly.R
 d554ca976f134fe266fec91d645b22ab *R/pointsToMatrix.R
@@ -50,7 +50,7 @@ a0903ff2b54c613bedcd723a0b3784f7 *R/regularCoordinates.R
 464a29b93751536caa7f2cf583124960 *data/wrld.RData
 cb981834e1010176048cbf15a2731fb2 *inst/doc/geosphere.R
 01e832d6cf3cbcc211303ece29355ac2 *inst/doc/geosphere.Rnw
-50b67f39b95a6b109eccdf38a270a7cc *inst/doc/geosphere.pdf
+c5da7afc07831e9bb76bb1dca544d247 *inst/doc/geosphere.pdf
 4fa50fc5ca825e297513fd184b00fbb2 *man/alongTrackDistance.Rd
 7ac006462708758f21b000d2598ca7bf *man/antipode.Rd
 ade51c1a1bb726e6486a20bf2aa3283a *man/area.Rd
@@ -76,10 +76,10 @@ f5f1e34a292b26363ac4d081806fce11 *man/distVincentySphere.Rd
 581271d40291288b3b9e944029b8bd83 *man/gcIntersectBearing.Rd
 4cc1bd2d9a3733a04c07559f1e0d49d0 *man/gcLat.Rd
 5cd96379502935e99e51a3effe0f4f1a *man/gcLon.Rd
-f8003b6ace94d680469c2e032dd28d2c *man/gcMaxLat.Rd
+d055799f0ab8e1c41cc3a32b3aa55f70 *man/gcMaxLat.Rd
 b29d7819a07da1a47f0943add0e98d49 *man/geodesic.Rd
 48cb8c3ad419c5c376828521bcae65c2 *man/geomean.Rd
-cc506dca5cf498c988319326a07e9745 *man/geosphere-package.Rd
+a8d3afed3630b4eb1eb42fe50b2c2887 *man/geosphere-package.Rd
 3df261608954d0bf77d1709e1286cffa *man/greatCircle.Rd
 f11f1ad3c3ba305fb7333ce9c7d510a4 *man/greatCircleBearing.Rd
 40c8824d9438d2ce1eaf524b97d2f99d *man/horizon.Rd
@@ -87,7 +87,7 @@ f11f1ad3c3ba305fb7333ce9c7d510a4 *man/greatCircleBearing.Rd
 f53074b0340058927ea1d154f88b53b3 *man/makepoly.Rd
 3dce51d50ff541a6d726970abe6da5b4 *man/mercator.Rd
 7a5336f0604f3e507240590478dbb648 *man/midPoint.Rd
-d6925de88838eac2519c7a159de8ab27 *man/onGreatCircle.Rd
+59e5771608c5cd49199e43247d7322c5 *man/onGreatCircle.Rd
 30ce45ec0fc053797d210d7104580d6d *man/perimeter.Rd
 9c6d6bf5d20a721a18e2ecc43b93b53c *man/plotArrows.Rd
 09ecef64d617e2bb4fed06c1d273da7d *man/randomCoordinates.Rd

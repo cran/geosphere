@@ -1,8 +1,8 @@
 Package: geosphere
 Type: Package
 Title: Spherical Trigonometry
-Version: 1.4-3
-Date: 2015-7-1
+Version: 1.5-1
+Date: 2015-12-18
 Depends: sp, R (>= 2.10.0)
 Suggests: methods, raster
 Authors@R: c(
@@ -13,10 +13,10 @@ Description: Spherical trigonometry for geographic applications. That is, comput
 License: GPL (>= 3)
 LazyLoad: yes
 NeedsCompilation: yes
-Packaged: 2015-07-01 20:44:20 UTC; rhijmans
+Packaged: 2015-12-18 19:14:00 UTC; rhijmans
 Author: Robert J. Hijmans [cre, aut],
   Ed Williams [ctb],
   Chris Vennes [ctb]
 Maintainer: Robert J. Hijmans <r.hijmans@gmail.com>
 Repository: CRAN
-Date/Publication: 2015-07-02 01:32:59
+Date/Publication: 2015-12-18 23:27:21
