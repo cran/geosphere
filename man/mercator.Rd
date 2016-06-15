@@ -26,9 +26,7 @@ mercator(p, inverse=FALSE, r=6378137)
 matrix
 }
 
-\author{
-Robert Hijmans
-}
+\author{ Robert Hijmans }
 
 \examples{
 a = mercator(c(5,52))

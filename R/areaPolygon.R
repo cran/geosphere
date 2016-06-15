@@ -1,7 +1,4 @@
-# Based on code by Jason_Steven
-# http://forum.worldwindcentral.com/showthread.php?p=69704
-
-# R implementation by Robert Hijmans
+# Robert Hijmans
 # April 2010
 # version 1
 # license GPL3
@@ -24,7 +21,7 @@ function(x, a=6378137, f=1/298.257223563, ...) {
 	test <- is.projected(x)
 	if ( isTRUE (test) ) {
 		if (is.na(test)) {
-			warning('Coordinate reference system of SpatialPolygons object is not set. Assuming it is degrees (longitude/latitude)!')  			
+			warning('Coordinate reference system of SpatialPolygons object is not set. Assuming it is degrees (longitude/latitude)!') 
 		} else {
 			stop('The coordinate reference system is not longitude/latitude. Use rgeos::gArea instead')  
 		}
@@ -55,14 +52,14 @@ function(x, a=6378137, f=1/298.257223563, ...) {
 
 setMethod('areaPolygon', signature(x='matrix'), 
 function(x, a=6378137, f=1/298.257223563, ...) {
-	
 	r <- list(...)$r
 	if (!is.null(r)) {
 		# for backwards compatibility
-		# warning('remove argument "r" to use improved method')
+		warning('remove argument "r" to use an better algorithm')
 		return( .old_areaPolygon(x, r=r) )
 	}
 
+	# calling geographiclib	
 	x <- .Call("polygonarea", as.double(x[,1]), as.double(x[,2]), as.double(a), as.double(f), PACKAGE='geosphere')
 	abs(x[3])
 })

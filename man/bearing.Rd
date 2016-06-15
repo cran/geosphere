@@ -8,11 +8,11 @@ Direction of travel
 }
 
 \description{
-Get the initial bearing (direction; azimuth) to go from point \code{p1} to point \code{p2} (in longitude/latitude) following the shortest path on an ellipsoid (geodetic) or a sphere (great circle). Note that the bearing of travel changes continuously while going along the path. A route with constant bearing is a rhumb line (see  \code{\link[geosphere]{bearingRhumb}}).
+Get the initial bearing (direction; azimuth) to go from point \code{p1} to point \code{p2} (in longitude/latitude) following the shortest path on an ellipsoid (geodetic). Note that the bearing of travel changes continuously while going along the path. A route with constant bearing is a rhumb line (see  \code{\link[geosphere]{bearingRhumb}}).
 }
 
 \usage{
-bearing(p1, p2, a=6378137, f=1/298.257223563, sphere=FALSE)
+bearing(p1, p2, a=6378137, f=1/298.257223563)
 }
 
 \arguments{
@@ -20,9 +20,10 @@ bearing(p1, p2, a=6378137, f=1/298.257223563, sphere=FALSE)
   \item{p2}{as above}
    \item{a}{major (equatorial) radius of the ellipsoid. The default value is for WGS84 }
   \item{f}{ellipsoid flattening. The default value is for WGS84 }
-  \item{sphere}{logical. If \code{TRUE}, the bearing is computed for a sphere, instead of for an ellipsoid}  
 }
 
+
+\note{use \code{f=0} to get a bearing on a sphere (great circle)}
 
 \value{
 Bearing in degrees
@@ -33,19 +34,18 @@ Bearing in degrees
 Robert Hijmans
 }
 
+\references{
+C.F.F. Karney, 2013. Algorithms for geodesics, J. Geodesy 87: 43-55. \url{https://dx.doi.org/10.1007/s00190-012-0578-z}. Addenda: \url{http://geographiclib.sf.net/geod-addenda.html}. Also see \url{http://geographiclib.sourceforge.net/}
+}
+
 
 \seealso{
 \code{ \link[geosphere]{bearingRhumb}  }
 }
 
+
 \examples{
 bearing(c(10,10),c(20,20))
-}
-
-\references{
-\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}
-
-\url{http://www.movable-type.co.uk/scripts/latlong.html}
 }
 
 

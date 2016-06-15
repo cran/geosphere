@@ -35,9 +35,7 @@ antipodal points or a logical value (\code{TRUE} if antipodal)
 \url{http://en.wikipedia.org/wiki/Antipodes}
 }
 
-\author{
-Robert Hijmans
-}
+\author{ Robert Hijmans }
 
 
 \examples{

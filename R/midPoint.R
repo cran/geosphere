@@ -1,3 +1,18 @@
+# Robert Hijmans
+# October 2009
+# version 0.1
+# License GPL3
+
+
+midPoint <- function(p1, p2, a=6378137, f = 1/298.257223563) {
+	# by Elias Pipping
+	gi <- geodesic_inverse(p1, p2, a=a, f=f);
+	destPoint(p1, gi[,'azimuth1'], gi[,'distance']/2, a = a, f = f)
+}
+
+
+.old_midPoint <- function(p1, p2) {
+
 # author of original JavaScript code: Chris Vennes
 # (c) 2002-2009 Chris Veness
 # http://www.movable-type.co.uk/scripts/latlong.html
@@ -7,12 +22,7 @@
 # http://williams.best.vwh.net/avform.htm
 
 # Port to R by Robert Hijmans
-# October 2009
-# version 0.1
-# License GPL3
 
-
-midPoint <- function(p1, p2) {
 # calculate midpoint of great circle line between p1 & p2.
 # see http:#//mathforum.org/library/drmath/view/51822.html for derivation
 #  based on  http://www.movable-type.co.uk/scripts/latlong.html

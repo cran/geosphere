@@ -29,7 +29,7 @@ Vector of distances in meters
 }
 
 \details{
-Parameters from the WGS84 ellipsoid are used by default. It is the best available global ellipsoid, but for some areas other ellipsoids could be preferable, or even necessary if you work with a printed map that refers to that ellipsoid. Here are parameters for some commonly used ellipsoids.
+Parameters from the WGS84 ellipsoid are used by default. It is the best available global ellipsoid, but for some areas other ellipsoids could be preferable, or even necessary if you work with a printed map that refers to that ellipsoid. Here are parameters for some commonly used ellipsoids. Also see the \code{\link{refEllipsoids}} function.
 
 \tabular{rlll}{
  \tab \code{ ellipsoid          } \tab \code{ a            } \tab \code{ f               } \cr

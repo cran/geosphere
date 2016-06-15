@@ -31,9 +31,7 @@ A matrix of points, or a list of such matrices (e.g., if multiple bearings are s
 \url{http://williams.best.vwh.net/avform.htm#Int}
 }
 
-\author{
-Robert Hijmans, based on a formula provided by Ed Williams
-}
+\author{ Robert Hijmans, based on a formula provided by Ed Williams }
 
 
 \examples{

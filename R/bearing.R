@@ -3,10 +3,10 @@
 # Version 2.0
 # Licence GPL v3
 
-bearing <- function(p1, p2, a=6378137, f=1/298.257223563, sphere=FALSE) {
-	if (sphere) {
-		return(.old_bearing(p1, p2))
-	}
+bearing <- function(p1, p2, a=6378137, f=1/298.257223563) {
+#	if (sphere) {
+#		return(.old_bearing(p1, p2))
+#	}
 	p1 <- .pointsToMatrix(p1)
 	p2 <- .pointsToMatrix(p2)
 	p <- cbind(p1[,1], p1[,2], p2[,1], p2[,2])	
@@ -14,6 +14,7 @@ bearing <- function(p1, p2, a=6378137, f=1/298.257223563, sphere=FALSE) {
 	r <- matrix(r, ncol=3, byrow=TRUE)
 	r[, 2]
 }
+
 
 .old_bearing <- function(p1, p2) {
 	toRad <- pi / 180 

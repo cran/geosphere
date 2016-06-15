@@ -28,9 +28,7 @@ alongTrackDistance(p1, p2, p3, r=6378137)
 A distance in units of r (default is meters)
 }
 
-\author{
-Ed Williams and Robert Hijmans
-}
+\author{ Ed Williams and Robert Hijmans }
 
 
 \seealso{
