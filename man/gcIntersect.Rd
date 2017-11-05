@@ -34,7 +34,7 @@ two points for each pair of great circles
 
 
 \references{
-\url{http://williams.best.vwh.net/intersect.htm}
+\url{http://www.edwilliams.org/intersect.htm}
 }
 
 \author{

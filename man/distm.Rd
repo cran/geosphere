@@ -12,13 +12,13 @@ Distance matrix of a set of points, or between two sets of points
 }
 
 \usage{
-distm(x, y, fun=distHaversine)
+distm(x, y, fun=distGeo)
 }
 
 \arguments{
   \item{x}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
   \item{y}{Same as \code{x}. If missing, y is the same as x}
-  \item{fun}{A function to compute distances (e.g., distCosine, distHaversine, distVincenty*)}  
+  \item{fun}{A function to compute distances (e.g., distCosine or distGeo)}  
 }
 
 
@@ -35,7 +35,7 @@ Robert Hijmans
 }
 
 \seealso{
-\code{\link[geosphere]{distCosine}, \link[geosphere]{distHaversine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}}
+\code{\link[geosphere]{distGeo}, \link[geosphere]{distCosine}, \link[geosphere]{distHaversine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}}
 }
 
 \examples{

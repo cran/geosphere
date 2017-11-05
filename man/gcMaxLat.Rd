@@ -27,7 +27,7 @@ A matrix with coordinates (longitude/latitude)
 }
 
 \references{
-\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}
+\url{http://www.edwilliams.org/ftp/avsig/avform.txt}
 
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
 }

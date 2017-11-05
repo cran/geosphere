@@ -5,11 +5,11 @@
 
 
 
-.makeSinglePoly <- function(p, interval=10000, r=6378137) {
+.makeSinglePoly <- function(p, interval=10000, ...) {
 	res <- p[1,]
 	for (i in 1:(nrow(p)-1)) {
 		if (! isTRUE( all.equal(p[i,], p[i+1,]) )) {
-			d <- distHaversine(p[i,], p[i+1,], r=r)
+			d <- distGeo(p[i,], p[i+1,], ...)
 			n <- floor(d / interval)
 			if (n > 0) {
 				pts <- gcIntermediate(p[i,],p[i+1,], n)
@@ -26,11 +26,11 @@
  
  
  
-.makeSingleLine <- function(p, interval=10000, r=6378137) {
+.makeSingleLine <- function(p, interval=10000, ...) {
 	res <- p[1,]
 	for (i in 1:(nrow(p)-1)) {
 		if (! isTRUE( all.equal(p[i,], p[i+1,]) )) {
-			d <- distHaversine(p[i,], p[i+1,], r=r)
+			d <- distGeo(p[i,], p[i+1,], ...)
 			n <- floor(d / interval)
 			if (n > 0) {
 				pts <- gcIntermediate(p[i,],p[i+1,], n)
@@ -46,7 +46,7 @@
 }
  
  
-makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
+makePoly <- function(p, interval=10000, sp=FALSE, ...) {
 	if (inherits(p, 'SpatialPolygons')) {
 		test <- !is.projected(p)
 		if (! isTRUE (test) ) {
@@ -66,7 +66,7 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 			partlist <- list()
 			for (j in 1:parts) {
 				crd <- x[[i]]@Polygons[[j]]@coords
-				crd <- .makeSinglePoly(crd, interval=interval, r=r)
+				crd <- .makeSinglePoly(crd, interval=interval, ...)
 				partlist[[j]] <- Polygon(crd)
 			}
 			polys[[i]] <- Polygons(partlist, i)
@@ -86,7 +86,7 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 		if (! isTRUE(all.equal(p[1,], p[nrow(p),]))) {
 			p <- rbind(p, p[1,])
 		}
-		res <- .makeSinglePoly(p, interval=interval, r=r) 
+		res <- .makeSinglePoly(p, interval=interval, ...) 
 		if (sp) {
 			res <- SpatialPolygons(list(Polygons(list(Polygon(res)), 1)))
 			res@proj4string <- CRS("+proj=longlat +datum=WGS84")
@@ -97,7 +97,7 @@ makePoly <- function(p, interval=10000, r=6378137, sp=FALSE) {
 
 
 
-makeLine <- function(p, interval=10000, r=6378137, sp=FALSE) {
+makeLine <- function(p, interval=10000, sp=FALSE, ...) {
 	if (inherits(p, 'SpatialLines')) {
 		test <- !is.projected(p)
 		if (! isTRUE (test) ) {
@@ -118,7 +118,7 @@ makeLine <- function(p, interval=10000, r=6378137, sp=FALSE) {
 			partlist = list()
 			for (j in 1:parts) {
 				crd = x[[i]]@Lines[[j]]@coords
-				crd = .makeSingleLine(crd, interval=interval, r=r)
+				crd = .makeSingleLine(crd, interval=interval, ...)
 				partlist[[j]] = Line(crd)
 			}
 			lines[[i]] = Lines(partlist, i)
@@ -134,7 +134,7 @@ makeLine <- function(p, interval=10000, r=6378137, sp=FALSE) {
 		if (nrow(p) < 3) {
 			stop('cannot make a polygon (insufficent number of vertices)')
 		}
-		res <- .makeSingleLine(p, interval=interval, r=r) 
+		res <- .makeSingleLine(p, interval=interval, ...) 
 		if (sp) {
 			res <- SpatialLines(list(Lines(list(Line(res)), 1)))
 			res@proj4string <- CRS("+proj=longlat +datum=WGS84")

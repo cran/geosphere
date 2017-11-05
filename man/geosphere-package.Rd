@@ -27,7 +27,7 @@ Maintainer: Robert J. Hijmans <r.hijmans@gmail.com>
 \references{
 C.F.F. Karney, 2013. Algorithms for geodesics, J. Geodesy 87: 43-55. \url{https://dx.doi.org/10.1007/s00190-012-0578-z}. Addenda: \url{http://geographiclib.sf.net/geod-addenda.html}. Also see \url{http://geographiclib.sourceforge.net/}
 
-\url{http://williams.best.vwh.net/avform.htm}
+\url{http://www.edwilliams.org/avform.htm}
 
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
 

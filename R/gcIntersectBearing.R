@@ -1,6 +1,6 @@
 # author Chris Veness, Robert Hijmans
 # based on formulae by Ed Willians at
-# http://williams.best.vwh.net/avform.htm#Intersection
+# http://www.edwilliams.org/avform.htm#Intersection
 # October 2009
 # version 0.1
 # license GPL3

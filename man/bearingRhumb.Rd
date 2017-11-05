@@ -27,7 +27,7 @@ A direction (bearing) in degrees
 }
 
 \references{
-\url{http://williams.best.vwh.net/avform.htm#Rhumb}
+\url{http://www.edwilliams.org/avform.htm#Rhumb}
 
 \url{http://en.wikipedia.org/wiki/Rhumb_line}
 }

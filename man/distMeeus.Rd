@@ -17,7 +17,7 @@ distMeeus(p1, p2, a=6378137, f=1/298.257223563)
 
 \arguments{
   \item{p1}{longitude/latitude of point(s), in degrees 1; can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
-  \item{p2}{as above}
+  \item{p2}{as above; or missing, in which case the sequential distance between the points in p1 is computed}
   \item{a}{numeric. Major (equatorial) radius of the ellipsoid. The default value is for WGS84 }
   \item{f}{numeric. Ellipsoid flattening. The default value is for WGS84 } 
 }
@@ -60,7 +60,7 @@ Robert Hijmans, based on a script by Stephen R. Schmitt
 
 
 \seealso{
-\code{\link{distVincentyEllipsoid}, \link{distVincentySphere}, \link{distHaversine}, \link{distCosine}}
+\code{\link[geosphere]{distGeo}, \link{distVincentyEllipsoid}, \link{distVincentySphere}, \link{distHaversine}, \link{distCosine}}
 }
 
 \examples{

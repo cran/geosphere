@@ -18,7 +18,12 @@ distVincentyEllipsoid <- function(p1, p2, a=6378137, b=6356752.3142, f=1/298.257
 
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
-	p2 <- .pointsToMatrix(p2) * toRad
+	if (missing(p2)) {
+		p2 <- p1[-1,]
+		p1 <- p1[-nrow(p1),]
+	} else {
+		p2 <- .pointsToMatrix(p2) * toRad
+	}
 	
 	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(a), as.vector(b), as.vector(f))
 	p1 = p[,1:2,drop=FALSE] 

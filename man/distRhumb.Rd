@@ -18,7 +18,7 @@ distRhumb(p1, p2, r=6378137)
 
 \arguments{
   \item{p1}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
-  \item{p2}{as above}
+  \item{p2}{as above; or missing, in which case the sequential distance between the points in p1 is computed}
   \item{r}{radius of the earth; default = 6378137 m}
 }
 

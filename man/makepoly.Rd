@@ -11,15 +11,15 @@ It can make the shape of the object to be accurate, when plotted on a plane. \co
 }
 
 \usage{
-makePoly(p, interval=10000, r=6378137, sp=FALSE)
-makeLine(p, interval=10000, r=6378137, sp=FALSE)
+makePoly(p, interval=10000, sp=FALSE, ...)
+makeLine(p, interval=10000, sp=FALSE, ...)
 }
 
 \arguments{
 \item{p}{a 2-column matrix (longitude/latitude) or a SpatialPolygons or SpatialLines object}
 \item{interval}{maximum interval of points, in units of r}
-\item{r}{radius of the earth; default = 6378137}  
 \item{sp}{Logical. If \code{TRUE}, a SpatialPolygons object is retunred (depends on the 'sp' package)}
+\item{...}{additional arguments passed to distGeo}  
 }
 
 

@@ -10,7 +10,12 @@ distMeeus <- function(p1, p2, a=6378137, f=1/298.257223563) {
 
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
-	p2 <- .pointsToMatrix(p2) * toRad
+	if (missing(p2)) {
+		p2 <- p1[-1,]
+		p1 <- p1[-nrow(p1),]
+	} else {
+		p2 <- .pointsToMatrix(p2) * toRad
+	}
     F <- ( p1[,2] + p2[,2] ) / 2
 	G <- ( p1[,2] - p2[,2] ) / 2
 	L <- ( p1[,1] - p2[,1] ) / 2

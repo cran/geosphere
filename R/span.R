@@ -29,9 +29,9 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 	
 	x <- SpatialPolygons(list(Polygons(list(Polygon(x)), 1)))
 	if (missing(fun)) {
-		x <- span(x, nbands=nbands, n=n, res=res, r=r, ...) 
+		x <- span(x, nbands=nbands, n=n, res=res, ...) 
 	} else {	
-		x <- span(x, nbands=nbands, n=n, res=res, fun=fun, r=r, ...) 
+		x <- span(x, nbands=nbands, n=n, res=res, fun=fun, ...) 
 	}
 	if (rotated & missing(fun)) {
 		x$longitude = x$longitude + 180
@@ -42,7 +42,7 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 
 
 setMethod("span", signature(x='SpatialPolygons'), 
-function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
+function(x, nbands='fixed', n=100, res=0.1, fun, ...) {
 
 	if (!requireNamespace('raster')) {stop('you need to install the "raster" package to use this function')}
 	
@@ -75,8 +75,8 @@ function(x, nbands='fixed', n=100, res=0.1, fun, r=6378137, ...) {
 				
 		latitude <- raster::yFromRow(rs, 1:nrow(rs))
 		longitude <- raster::xFromCol(rs, 1:ncol(rs))
-		xd <- distHaversine(cbind(0,latitude), cbind(raster::xres(rs),latitude), r=r)
-		yd <- distHaversine(cbind(0,0),   cbind(0,raster::yres(rs)), r=r)
+		xd <- distGeo(cbind(0,latitude), cbind(raster::xres(rs),latitude), ...)
+		yd <- distGeo(cbind(0,0), cbind(0,raster::yres(rs)), ...)
 		
 		rs <- raster::rasterize(pp, rs, silent=TRUE)
 		rs <- raster::getValues(rs, format='matrix')

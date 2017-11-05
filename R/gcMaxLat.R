@@ -1,5 +1,5 @@
 # Based on formulae by Ed Williams
-# http://williams.best.vwh.net/avform.htm
+# http://www.edwilliams.org/avform.htm
 
 # Port to R by Robert Hijmans
 # October 2009

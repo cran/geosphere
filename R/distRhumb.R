@@ -3,7 +3,7 @@
 # http://www.movable-type.co.uk/scripts/latlong.html
 # Licence: LGPL, without any warranty express or implied
 
-# see http://williams.best.vwh.net/avform.htm#Rhumb
+# see http://www.edwilliams.org/avform.htm#Rhumb
 # for the original formulae
 
 # Port to R by Robert Hijmans
@@ -15,9 +15,14 @@ distRhumb <- function(p1, p2, r=6378137) {
 # distance on a rhumb line
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
-	p2 <- .pointsToMatrix(p2) * toRad
+	if (missing(p2)) {
+		p2 <- p1[-1,]
+		p1 <- p1[-nrow(p1),]
+	} else {
+		p2 <- .pointsToMatrix(p2) * toRad	 
+	}
   
-	p = cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))
+	p <- cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))
 	lon1 <- p[,1]
 	lat1 <- p[,2]
 	lon2 <- p[,3]

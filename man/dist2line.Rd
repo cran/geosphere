@@ -11,13 +11,13 @@ Distance between points and lines or the border of polygons.
 The shortest distance between points and polylines or polygons. 
 }
 
-\usage{dist2Line(p, line, distfun=distHaversine)
+\usage{dist2Line(p, line, distfun=distGeo)
 }
 
 \arguments{
   \item{p}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
   \item{line}{longitude/latitude of line as a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialLines* or SpatialPolygons* object}
-  \item{distfun}{A distance function, such as \link[geosphere]{distHaversine}}  
+  \item{distfun}{A distance function, such as \link[geosphere]{distGeo}}  
 }
 
 

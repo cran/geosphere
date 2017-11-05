@@ -3,7 +3,7 @@
 
 /* Robert Hijmans, May 2015 */
  
-SEXP geodesic(SEXP longitude, SEXP latitude, SEXP azimuth, SEXP distance, SEXP pa, SEXP pf) {
+SEXP _geodesic(SEXP longitude, SEXP latitude, SEXP azimuth, SEXP distance, SEXP pa, SEXP pf) {
 
   PROTECT(latitude = coerceVector(latitude, REALSXP));
   PROTECT(longitude = coerceVector(longitude, REALSXP));
@@ -40,7 +40,7 @@ SEXP geodesic(SEXP longitude, SEXP latitude, SEXP azimuth, SEXP distance, SEXP p
  
  
  
-SEXP inversegeodesic(SEXP longitude1, SEXP latitude1, SEXP longitude2, SEXP latitude2, SEXP pa, SEXP pf) {
+SEXP _inversegeodesic(SEXP longitude1, SEXP latitude1, SEXP longitude2, SEXP latitude2, SEXP pa, SEXP pf) {
 
   PROTECT(latitude1 = coerceVector(latitude1, REALSXP));
   PROTECT(longitude1 = coerceVector(longitude1, REALSXP));
@@ -75,7 +75,7 @@ SEXP inversegeodesic(SEXP longitude1, SEXP latitude1, SEXP longitude2, SEXP lati
 }
 
 
-SEXP polygonarea(SEXP longitude, SEXP latitude, SEXP pa, SEXP pf) {
+SEXP _polygonarea(SEXP longitude, SEXP latitude, SEXP pa, SEXP pf) {
 
 
   PROTECT(latitude = coerceVector(latitude, REALSXP));

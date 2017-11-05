@@ -17,7 +17,7 @@ This method assumes a spherical earth, ignoring ellipsoidal effects.
 
 \arguments{
   \item{p1}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
-  \item{p2}{as above}
+  \item{p2}{as above; or missing, in which case the sequential distance between the points in p1 is computed}
   \item{r}{radius of the earth; default = 6378137 m}  
 }
 
@@ -45,7 +45,7 @@ Chris Veness and Robert Hijmans
 
 
 \seealso{
-\code{\link[geosphere]{distCosine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}, \link{distMeeus}}
+\code{\link[geosphere]{distGeo}, \link[geosphere]{distCosine}, \link[geosphere]{distVincentySphere}, \link[geosphere]{distVincentyEllipsoid}, \link{distMeeus}}
 }
 
 \examples{

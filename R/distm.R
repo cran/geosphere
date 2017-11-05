@@ -20,7 +20,7 @@
 }
 
 
-distm <- function(x, y, fun=distHaversine) {
+distm <- function(x, y, fun=distGeo) {
 	x <- .pointsToMatrix(x)
 	
 	if (missing(y)) {

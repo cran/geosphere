@@ -2,7 +2,7 @@
 # (c) 2002-2009 Chris Veness
 # http://www.movable-type.co.uk/scripts/latlong.html
 # Licence: LGPL, without any warranty express or implied
-# see http://williams.best.vwh.net/avform.htm#Rhumb
+# see http://www.edwilliams.org/avform.htm#Rhumb
 # for the original formulae
 
 # Robert Hijmans

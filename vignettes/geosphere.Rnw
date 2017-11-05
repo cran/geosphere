@@ -41,7 +41,7 @@ Geographic locations must be specified in longitude and latitude (and in that or
 
 The default unit of distance is meter; but this can be adjusted by supplying a different radius 'r' to functions. Directions are expressed in degrees (N = 0 and 360,  E = 90, S = 180, and W = 270 degrees). If arguments of functions that take several arguments (e.g. points, bearings, radius of the earth), do not have the same length (for vectors) or number of rows (for matrices) the shorter arguments are re-cycled.
 
-Many functions in this package are based on formulae provided by Ed Williams (\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}, and partly on javascript implementations of these formulae by Chris Veness (\url{http://www.movable-type.co.uk/scripts/latlong.html} )
+Many functions in this package are based on formulae provided by Ed Williams (\url{http://www.edwilliams.org/ftp/avsig/avform.txt}, and partly on javascript implementations of these formulae by Chris Veness (\url{http://www.movable-type.co.uk/scripts/latlong.html} )
 
 Most geodesic computations (for a spheroid rather than a sphere) use the GeographicLib by C.F.F. Karney (\url{http://geographiclib.sourceforge.net/}.
 
@@ -57,11 +57,11 @@ Below the differences between the three spherical methods are illustrated. At ve
 
 <<fig=TRUE , echo=TRUE>>=
 library(geosphere)
-Lon = c(1:9/1000, 1:9/100, 1:9/10, 1:90*2) 
-Lat = c(1:9/1000, 1:9/100, 1:9/10, 1:90) 
-dcos = distCosine(c(0,0), cbind(Lon, Lat))
-dhav = distHaversine(c(0,0), cbind(Lon, Lat))
-dvsp = distVincentySphere(c(0,0), cbind(Lon, Lat))
+Lon <- c(1:9/1000, 1:9/100, 1:9/10, 1:90*2) 
+Lat <- c(1:9/1000, 1:9/100, 1:9/10, 1:90) 
+dcos <- distCosine(c(0,0), cbind(Lon, Lat))
+dhav <- distHaversine(c(0,0), cbind(Lon, Lat))
+dvsp <- distVincentySphere(c(0,0), cbind(Lon, Lat))
 par(mfrow=(c(1,2)))
 plot(log(dcos), dcos-dhav, col='red', ylim=c(-1e-05, 1e-05), 
             xlab="Log 'Law of Cosines' distance (m)", 
@@ -74,7 +74,7 @@ plot(log(dhav), dhav-dvsp, col='blue',
 The difference with the 'Vincenty Ellipsoid' method is more pronounced. In the example below (using the default WGS83 ellipsoid), the difference is about 0.3% at very small distances, and 0.15% at larger distances.
 
 <<fig=TRUE , echo=TRUE>>=
-dvse = distVincentyEllipsoid(c(0,0), cbind(Lon, Lat))
+dvse <- distVincentyEllipsoid(c(0,0), cbind(Lon, Lat))
 plot(dvsp/1000, (dvsp-dvse)/1000, col='blue', xlab='Vincenty Sphere Distance (km)', 
         ylab="Difference between 'Vincenty Sphere' and 'Vincenty Ellipsoid' methods (km)")
 @

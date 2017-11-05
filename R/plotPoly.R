@@ -12,7 +12,7 @@
 	if (fraction >= 1) {
 		graphics::lines(line, ...)
 	} else {
-		dist <- distHaversine(p[-nrow(p),], p[-1,]) * (1 - fraction)
+		dist <- distGeo(p[-nrow(p),], p[-1,]) * (1 - fraction)
 		bearing <- bearing(p[-nrow(p),], p[-1,])
 		p0 <- destPoint(p[-nrow(p),], bearing, dist)
 		for (i in 1:nrow(p0)) {

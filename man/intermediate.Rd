@@ -32,7 +32,7 @@ matrix or list with intermediate points
 }
 
 \references{
-\url{http://williams.best.vwh.net/avform.htm#Intermediate}
+\url{http://www.edwilliams.org/avform.htm#Intermediate}
 }
 
 \author{

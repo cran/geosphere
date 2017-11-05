@@ -6,12 +6,12 @@
 # See http://local.wasp.uwa.edu.au/~pbourke/geometry/polyarea/
 
 .basiccentroid <- function(p) {
-	p2 = rbind(p[-1,], p[1,])
-	P = p[,1] * p2[,2] - p2[,1] * p[,2]
+	p2 <- rbind(p[-1,], p[1,])
+	P <- p[,1] * p2[,2] - p2[,1] * p[,2]
 	area6 <- 6 * sum(P) / 2
-    lon <- sum((p[,1] + p2[,1]) * P)
-    lat <- sum((p[,2] + p2[,2]) * P)
-	return(cbind(lon, lat) / area6 )
+    x <- sum((p[,1] + p2[,1]) * P)
+    y <- sum((p[,2] + p2[,2]) * P)
+	return(cbind(x, y) / area6 )
 }
 
 if (!isGeneric("centroid")) {

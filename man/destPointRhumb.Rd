@@ -27,7 +27,7 @@ Coordinates (longitude/latitude) of a point
 }
 
 \references{
-\url{http://williams.best.vwh.net/avform.htm#Rhumb}
+\url{http://www.edwilliams.org/avform.htm#Rhumb}
 
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
 

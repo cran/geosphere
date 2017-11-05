@@ -1,4 +1,12 @@
+-- to do
+inconsistency reported by Ryan Case: bearing is expressed as -180 to 180 whereas bearingRhum is from 0 to 360
+
 -- Current version
+distHaversine bugged in some cases for antipodes: https://stackoverflow.com/questions/45889616/why-does-disthaversine-return-nan-for-some-pairs-of-coordinates#
+dist2gc always returned a positive value (the manual said it should be negative if it was at the left of the circle); in contrast with what the manual stated. Getting the sign is now an option. Reported by Charles Mohan, Hughan Ross and David Cooley
+dist2gc used the bearing for an ellipsoid, not for a spheroid. Reported by Greg Whittier
+
+-- 15 June 2016, version 1.5-5
 Fixed error in gcMaxLat (reported by William Smith)
 Bug fix in antipodal (reported by Gareth Davies)
 Bug fix in gcIntermediate when crossing the date line

@@ -12,11 +12,11 @@ foo <- packageDescription("geosphere")
 ### code chunk number 2: geosphere.Rnw:58-71
 ###################################################
 library(geosphere)
-Lon = c(1:9/1000, 1:9/100, 1:9/10, 1:90*2) 
-Lat = c(1:9/1000, 1:9/100, 1:9/10, 1:90) 
-dcos = distCosine(c(0,0), cbind(Lon, Lat))
-dhav = distHaversine(c(0,0), cbind(Lon, Lat))
-dvsp = distVincentySphere(c(0,0), cbind(Lon, Lat))
+Lon <- c(1:9/1000, 1:9/100, 1:9/10, 1:90*2) 
+Lat <- c(1:9/1000, 1:9/100, 1:9/10, 1:90) 
+dcos <- distCosine(c(0,0), cbind(Lon, Lat))
+dhav <- distHaversine(c(0,0), cbind(Lon, Lat))
+dvsp <- distVincentySphere(c(0,0), cbind(Lon, Lat))
 par(mfrow=(c(1,2)))
 plot(log(dcos), dcos-dhav, col='red', ylim=c(-1e-05, 1e-05), 
             xlab="Log 'Law of Cosines' distance (m)", 
@@ -29,7 +29,7 @@ plot(log(dhav), dhav-dvsp, col='blue',
 ###################################################
 ### code chunk number 3: geosphere.Rnw:76-79
 ###################################################
-dvse = distVincentyEllipsoid(c(0,0), cbind(Lon, Lat))
+dvse <- distVincentyEllipsoid(c(0,0), cbind(Lon, Lat))
 plot(dvsp/1000, (dvsp-dvse)/1000, col='blue', xlab='Vincenty Sphere Distance (km)', 
         ylab="Difference between 'Vincenty Sphere' and 'Vincenty Ellipsoid' methods (km)")
 

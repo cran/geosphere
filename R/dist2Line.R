@@ -33,7 +33,7 @@
 }		
 		
 
-dist2Line <- function(p, line, distfun=distHaversine) {
+dist2Line <- function(p, line, distfun=distGeo) {
 
 	p <- .pointsToMatrix(p)
 	

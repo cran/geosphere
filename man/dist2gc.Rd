@@ -12,7 +12,7 @@ Compute the distance of a point to a great-circle path (also referred to as the 
 }
 
 \usage{
-dist2gc(p1, p2, p3, r=6378137)
+dist2gc(p1, p2, p3, r=6378137, sign=FALSE)
 }
 
 \arguments{
@@ -20,13 +20,13 @@ dist2gc(p1, p2, p3, r=6378137)
   \item{p2}{End of great circle path. As above}
   \item{p3}{Point away from the great cricle path. As for p2}
   \item{r}{radius of the earth; default = 6378137}  
+  \item{sign}{logical. If \code{TRUE}, a negative sign is used to indicated that the points are to the left of the great circle}    
 }
 
 
 \value{
 A distance in units of \code{r} (default is meters)
-
-The sign indicates which side of the path p3 is on. Positive  means right of the course from p1 to p2, negative means left.
+If \code{sign=TRUE}, the sign indicates which side of the path p3 is on. Positive  means right of the course from p1 to p2, negative means left.
 }
 
 
@@ -42,7 +42,7 @@ Ed Williams and Robert Hijmans
 \references{
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
 
-\url{http://williams.best.vwh.net/ftp/avsig/avform.txt}
+\url{http://www.edwilliams.org/ftp/avsig/avform.txt}
 }
 
 

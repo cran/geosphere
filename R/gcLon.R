@@ -4,11 +4,11 @@
 # license GPL3
 
 # based on
-#http://williams.best.vwh.net/avform.htm#Par
+#http://www.edwilliams.org/avform.htm#Par
 
 gcLon <- function(p1, p2, lat) {
 # longitudes at which a given great circle crosses a given parallel
-# source: http://williams.best.vwh.net/avform.htm
+# source: http://www.edwilliams.org/avform.htm
 	
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) 

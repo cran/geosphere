@@ -1,6 +1,6 @@
 # based on code by Ed Williams
 # licence GPL
-# http://williams.best.vwh.net/avform.htm#XTE
+# http://www.edwilliams.org/avform.htm#XTE
 
 # Port to R by Robert Hijmans
 # October 2009

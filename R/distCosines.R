@@ -7,7 +7,12 @@
 
 distCosine <- function(p1, p2, r=6378137) {
 	p1 <- .pointsToMatrix(p1) 
-	p2 <- .pointsToMatrix(p2) 
+	if (missing(p2)) {
+		p2 <- p1[-1,]
+		p1 <- p1[-nrow(p1),]
+	} else {
+		p2 <- .pointsToMatrix(p2) 	
+	}
 	pp  <- cbind(p1[,1], p1[,2], p2[,1], p2[,2], as.vector(r))
 
 	# remove identical points to avoid errors due to floating point math

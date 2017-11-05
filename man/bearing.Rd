@@ -17,7 +17,7 @@ bearing(p1, p2, a=6378137, f=1/298.257223563)
 
 \arguments{
   \item{p1}{longitude/latitude of point(s). Can be a vector of two numbers, a matrix of 2 columns (first one is longitude, second is latitude) or a SpatialPoints* object}
-  \item{p2}{as above}
+  \item{p2}{as above. Can also be missing, in which case the bearing is computed going from the first point to the next and continuing along the following points}
    \item{a}{major (equatorial) radius of the ellipsoid. The default value is for WGS84 }
   \item{f}{ellipsoid flattening. The default value is for WGS84 }
 }

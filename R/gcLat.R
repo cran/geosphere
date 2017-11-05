@@ -6,7 +6,7 @@
 
 gcLat <- function(p1, p2, lon) {
 # Intermediate points on a great circle
-# source: http://williams.best.vwh.net/avform.htm
+# source: http://www.edwilliams.org/avform.htm
 	toRad <- pi / 180 
 	d <- distCosine(p1, p2)
 	p1 <- .pointsToMatrix(p1)

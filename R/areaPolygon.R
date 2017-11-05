@@ -60,7 +60,7 @@ function(x, a=6378137, f=1/298.257223563, ...) {
 	}
 
 	# calling geographiclib	
-	x <- .Call("polygonarea", as.double(x[,1]), as.double(x[,2]), as.double(a), as.double(f), PACKAGE='geosphere')
+	x <- .Call("_polygonarea", as.double(x[,1]), as.double(x[,2]), as.double(a), as.double(f), PACKAGE='geosphere')
 	abs(x[3])
 })
 	

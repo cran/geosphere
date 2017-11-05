@@ -4,7 +4,7 @@
 # license GPL3
 
 # based on an alogrithm described by Ed Williams
-# http://williams.best.vwh.net/intersect.htm
+# http://www.edwilliams.org/intersect.htm
 
 # Not used
 #gete <- function(lon, lat) {

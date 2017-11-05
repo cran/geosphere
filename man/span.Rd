@@ -27,7 +27,7 @@ The following additional arguments can be passed, to replace default values for 
   \tab \code{n} \tab Integer >= 1. If \code{nbands='fixed'}, how many bands should be used \cr
   \tab \code{res} \tab Numeric. If \code{nbands='variable'}, what should the bandwidth be (in degrees)? \cr
   \tab \code{fun} \tab Logical. A function such as mean or min. Mean computes the average span \cr
-  \tab \code{r} \tab Numeric. Radius of the earth; default=6378137m  \cr
+  \tab \code{...} \tab further additional arguments passed to distGeo\cr
  }
 }
 

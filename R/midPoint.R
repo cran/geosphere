@@ -19,7 +19,7 @@ midPoint <- function(p1, p2, a=6378137, f = 1/298.257223563) {
 # Licence: LGPL, without any warranty express or implied
 
 # Much of the above based on formulae by Ed Williams
-# http://williams.best.vwh.net/avform.htm
+# http://www.edwilliams.org/avform.htm
 
 # Port to R by Robert Hijmans
 
