@@ -41,7 +41,7 @@
 			}
 		}
 	}
-	if (nrow(res) < 2) stop('cannot make a valid polygon')
+	if (nrow(res) < 2) stop('cannot make a valid line')
 	return(res)
 }
  

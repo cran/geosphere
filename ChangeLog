@@ -2,6 +2,9 @@
 inconsistency reported by Ryan Case: bearing is expressed as -180 to 180 whereas bearingRhum is from 0 to 360
 
 -- Current version
+dist* functions threw an error when using a two row matrix  for p1, and missing p2. Fixed by setting "drop=FALSE". Bug report and fix by Miles Wood.
+
+-- 2 November 2018, version 1.5.7
 distHaversine bugged in some cases for antipodes: https://stackoverflow.com/questions/45889616/why-does-disthaversine-return-nan-for-some-pairs-of-coordinates#
 dist2gc always returned a positive value (the manual said it should be negative if it was at the left of the circle); in contrast with what the manual stated. Getting the sign is now an option. Reported by Charles Mohan, Hughan Ross and David Cooley
 dist2gc used the bearing for an ellipsoid, not for a spheroid. Reported by Greg Whittier

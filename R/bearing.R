@@ -4,9 +4,6 @@
 # Licence GPL v3
 
 bearing <- function(p1, p2, a=6378137, f=1/298.257223563) {
-#	if (sphere) {
-#		return(.old_bearing(p1, p2))
-#	}
 
 	p1 <- .pointsToMatrix(p1)
 
@@ -30,7 +27,6 @@ bearing <- function(p1, p2, a=6378137, f=1/298.257223563) {
 	} else {
 		r[, 2]
 	}
-	
 }
 
 

@@ -16,8 +16,8 @@ distRhumb <- function(p1, p2, r=6378137) {
 	toRad <- pi / 180 
 	p1 <- .pointsToMatrix(p1) * toRad
 	if (missing(p2)) {
-		p2 <- p1[-1,]
-		p1 <- p1[-nrow(p1),]
+		p2 <- p1[-1, ,drop=FALSE]
+		p1 <- p1[-nrow(p1), ,drop=FALSE]
 	} else {
 		p2 <- .pointsToMatrix(p2) * toRad	 
 	}

@@ -28,7 +28,7 @@
 			p <- matrix(p, ncol=2) 
 		}
 	} else if (is.matrix(p)) {
-		if (length(p[1,]) != 2) {
+		if (ncol(p) != 2) {
 			stop( 'A points matrix should have 2 columns')
 		}
 		cn <- colnames(p)
@@ -46,7 +46,7 @@
 
 	if (! is.numeric(p) ) { p[] <- as.numeric(p) }
 	
-	if (checkLonLat) {
+	if (checkLonLat & nrow(p) > 0) {
 		if (length(stats::na.omit(p[,1])) > 0) {
 			if (min(p[,1], na.rm=TRUE) < -360) { stop('longitude < -360') }
 			if (max(p[,1], na.rm=TRUE) > 360) {  stop('longitude > 360')  }
