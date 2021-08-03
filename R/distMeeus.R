@@ -16,7 +16,7 @@ distMeeus <- function(p1, p2, a=6378137, f=1/298.257223563) {
 	} else {
 		p2 <- .pointsToMatrix(p2) * toRad
 	}
-  F <- ( p1[,2] + p2[,2] ) / 2
+	F <- ( p1[,2] + p2[,2] ) / 2
 	G <- ( p1[,2] - p2[,2] ) / 2
 	L <- ( p1[,1] - p2[,1] ) / 2
 	rm(list = c("p1", "p2"))
