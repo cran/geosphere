@@ -37,7 +37,7 @@ distHaversine <- function(p1, p2, r=6378137) {
 	# https://stackoverflow.com/questions/45889616/why-does-disthaversine-return-nan-for-some-pairs-of-coordinates#
 	a <- pmin(a, 1)
 	a <- 2 * atan2(sqrt(a), sqrt(1-a)) * p[,5]
-	# stop making dist
+	# avoided making intermediate dist
 	return( as.vector(a))
 }
 
