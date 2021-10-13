@@ -30,10 +30,7 @@ Matrix of lon/lat coordiantes
 
 
 \author{
-Robert Hijmans, 
-based on code by Nils Haeck (regularCoordinates), \url{http://mathforum.org/kb/message.jspa?messageID=3985660&tstart=0}
-
-and suggstions by Michael Orion (randomCoordinates), \url{http://sci.tech-archive.net/Archive/sci.math/2005-09/msg04691.html}
+Robert Hijmans, based on code by Nils Haeck (regularCoordinates) and on suggstions by Michael Orion (randomCoordinates)
 }
 
 \examples{

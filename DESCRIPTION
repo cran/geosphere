@@ -1,23 +1,26 @@
 Package: geosphere
 Type: Package
 Title: Spherical Trigonometry
-Version: 1.5-10
-Date: 2019-05-25
+Version: 1.5-14
+Date: 2021-10-12
 Imports: sp
 Depends: R (>= 3.0.0)
 Suggests: methods, raster
 Authors@R: c(
 	person("Robert J.", "Hijmans", role = c("cre", "aut"),  email = "r.hijmans@gmail.com"),
+	person("Charles", "Karney", role = "ctb", comment="GeographicLib"),	
 	person("Ed", "Williams", role = "ctb"),
 	person("Chris", "Vennes", role = "ctb"))
 Description: Spherical trigonometry for geographic applications. That is, compute distances and related measures for angular (longitude/latitude) locations. 
+BugReports: https://github.com/rspatial/geosphere/issues/
 License: GPL (>= 3)
 LazyLoad: yes
 NeedsCompilation: yes
-Packaged: 2019-05-26 01:10:19 UTC; rhijm
+Packaged: 2021-10-12 04:44:25 UTC; rhijm
 Author: Robert J. Hijmans [cre, aut],
+  Charles Karney [ctb] (GeographicLib),
   Ed Williams [ctb],
   Chris Vennes [ctb]
 Maintainer: Robert J. Hijmans <r.hijmans@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-05-26 04:50:14 UTC
+Date/Publication: 2021-10-13 21:00:02 UTC
