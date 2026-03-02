@@ -4,10 +4,10 @@
 # license GPL3
 
 .spDistPoint2Line <- function(p, line, distfun) {
-	test <- !is.projected(line)
+	test <- !sp::is.projected(line)
 	if (! isTRUE (test) ) {
 		if (is.na(test)) {
-			warning('Coordinate reference system of SpatialPolygons object is not set. Assuming it is degrees (longitude/latitude)!')  			
+			warning('Coordinate reference system of sp::SpatialPolygons object is not set. Assuming it is degrees (longitude/latitude)!')  			
 		} else {
 			stop('Points are projected. They should be in degrees (longitude/latitude)')  
 		}
@@ -38,7 +38,7 @@ dist2Line <- function(p, line, distfun=distGeo) {
 	p <- .pointsToMatrix(p)
 	
 	if (inherits(line, 'SpatialPolygons')) {
-		line <- methods::as(line, 'SpatialLines')
+		line <- methods::as(line, 'sp::SpatialLines')
 	}
 	if (inherits(line, 'SpatialLines')) {
 		return( .spDistPoint2Line(p, line, distfun) )

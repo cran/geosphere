@@ -2,6 +2,8 @@
 
 \alias{span}
 \alias{span,SpatialPolygons-method}
+\alias{span,SpatVector-method}
+\alias{span,sf-method}
 \alias{span,matrix-method}
   
 \title{Span of polygons}
@@ -15,7 +17,7 @@ span(x, ...)
 }
 
 \arguments{
-\item{x}{a SpatialPolygons* object or a 2-column matrix (longitude/latitude)}
+\item{x}{a SpatVector, sf, or SpatialPolygons* object or a 2-column matrix (longitude/latitude)}
 \item{...}{Additional arguments, see Details}
 }
 
@@ -39,6 +41,7 @@ A list, or a matrix if a function \code{fun} is specified. Values are in the uni
 \author{Robert J. Hijmans }
 
 \examples{
+\donttest{
 pol <- rbind(c(-180,-20), c(-160,5), c(-60, 0), c(-160,-60), c(-180,-20))
 plot(pol)
 lines(pol)
@@ -48,6 +51,7 @@ x <- span(pol)
 max(x$latspan)
 mean(x$latspan)
 plot(x$longitude, x$lonspan)
+}
 }
 
 \keyword{methods}
