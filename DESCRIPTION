@@ -1,12 +1,12 @@
 Package: geosphere
 Type: Package
 Title: Spherical Trigonometry
-Version: 1.6-5
-Date: 2026-03-01
+Version: 1.6-8
+Date: 2026-04-04
 LinkingTo: Rcpp
-Imports: Rcpp, sp
-Depends: R (>= 3.0.0)
-Suggests: methods, terra, sf
+Imports: Rcpp
+Depends: R (>= 3.0.0), methods
+Suggests: terra, sf, sp
 Authors@R: c(
 	person("Robert J.", "Hijmans", role = c("cre", "aut"),  email = "r.hijmans@gmail.com"),
 	person("Charles", "Karney", role = "ctb", comment="GeographicLib"),	
@@ -17,11 +17,11 @@ BugReports: https://github.com/rspatial/geosphere/issues/
 License: GPL (>= 3)
 LazyLoad: yes
 NeedsCompilation: yes
-Packaged: 2026-03-01 20:08:12 UTC; rhijm
+Packaged: 2026-04-04 20:57:44 UTC; rhijm
 Author: Robert J. Hijmans [cre, aut],
   Charles Karney [ctb] (GeographicLib),
   Ed Williams [ctb],
   Chris Vennes [ctb]
 Maintainer: Robert J. Hijmans <r.hijmans@gmail.com>
 Repository: CRAN
-Date/Publication: 2026-03-02 06:10:39 UTC
+Date/Publication: 2026-04-05 22:50:07 UTC

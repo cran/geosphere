@@ -1,6 +1,6 @@
 7f22976807c2cc107c3f2f88362a3e96 *ChangeLog
-4b6752f9390b422395902561a6fee06b *DESCRIPTION
-823071db3a642bdc2d26dacadcff50ea *NAMESPACE
+ba5cdaf082e3533c7474d24f44851ef3 *DESCRIPTION
+4bb73096ca67ec7d2fd66cd11338f0e0 *NAMESPACE
 ea5fcc0276d17d2012801761b5c911b8 *R/RcppExports.R
 f765cc60d33c319f122215070b9e5cca *R/alongTrack.R
 c603e867d2d36b565c0223b52c1c769e *R/antipodal.R
@@ -22,7 +22,7 @@ d86e0dbc3e707a4e765afa6d4ecc7b76 *R/distVincentyEllipsoid.R
 c91231d7fd536e01af2bcebf5266f40c *R/distVincentySphere.R
 e5d8a111f45a8958d3c1550365ac8be1 *R/distm.R
 a8fd9e76e34b8ba76855fb68e0268c5b *R/finalBearing.R
-a89912523834efaaa94a8f9d639fd77e *R/gcIntermediate.R
+e2ec6c0673f26d1674123059b83b8270 *R/gcIntermediate.R
 7907332e1c86fd152dba4944eeac4c5e *R/gcIntersect.R
 df3e5ff050196f694dcb830909576d54 *R/gcIntersectBearing.R
 4983e28ab7a610326903f3f8c968e346 *R/gcLat.R
@@ -50,13 +50,13 @@ ad94d2fb3c7bab9fcc660132ae3534bb *R/refEllipsoids.R
 a0903ff2b54c613bedcd723a0b3784f7 *R/regularCoordinates.R
 c6b3b408ca7a076e2de11c1db8a76ae5 *R/sampleAlong.R
 d11b49142cde7f8bdd857796a4d2d53a *R/span.R
-d54042561b90aafd8a9a202ea63e1e4b *build/partial.rdb
-28a952507a984af57381f15b4ed4f61c *build/vignette.rds
+ba582b375e5afde780e991c9b7711c6a *build/partial.rdb
+f9ea47bc9654de64083dea7bab544d0e *build/vignette.rds
 990871f1c55db0d5b160d786c86e6850 *data/merc.RData
 464a29b93751536caa7f2cf583124960 *data/wrld.RData
 62bcb6dd4e344c6e21a4d75c29e6888d *inst/doc/geosphere.R
 ccb6235f7e1009cfab76508d2848344e *inst/doc/geosphere.Rnw
-c291e2898a3b5917b0c0d9b9b926e751 *inst/doc/geosphere.pdf
+385f05501fe8e5dd663cd530571f5315 *inst/doc/geosphere.pdf
 81ce1c4eb1d5bd1302cd0e07987e9186 *man/OSGB.Rd
 6d96299e3d47a6bc59572c331080d5c6 *man/alongTrackDistance.Rd
 e3149675013c8042a7e4b1d189ebb502 *man/antipode.Rd
@@ -90,7 +90,7 @@ ac3f7fabfe8b312bb0a432305d2d4d15 *man/gcMaxLat.Rd
 4e7069024be6c2df3c285532b4a09a3f *man/greatCircle.Rd
 1fb55c4fcc4dc6832a62ed972ed21e72 *man/greatCircleBearing.Rd
 2fe4ad438c887c4afa1b6ab8ec397c8e *man/horizon.Rd
-c346ddc7994dffdbac1ba82f0002066d *man/intermediate.Rd
+a2a12c427a2df1ada5e71a01db049204 *man/intermediate.Rd
 f4041cf233eff9ff59f433466b12c72b *man/lengthLine.Rd
 f914ee7fb7d8814771cc6b9030d80874 *man/makepoly.Rd
 bb5594fa360f7bd43ce0e5a3e7669765 *man/mercator.Rd
